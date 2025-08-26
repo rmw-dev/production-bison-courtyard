@@ -4,7 +4,14 @@ import laravel from 'laravel-vite-plugin'
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
 
 export default defineConfig({
-  base: '/app/themes/sage/public/build/',
+  base: '/app/themes/bison-courtyard/public/build/',
+  server: {
+    headers: {
+      'Access-Control-Allow-Origin': 'http://bisoncourtyard.int',
+      'Access-Control-Allow-Methods': 'GET,OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Authorization',
+    },
+  },
   plugins: [
     tailwindcss(),
     laravel({

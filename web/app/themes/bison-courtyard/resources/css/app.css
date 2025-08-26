@@ -1,3 +1,121 @@
 @import "tailwindcss" theme(static);
+@import './fonts.css';
+@import './wordpress.css';
 @source "../views/";
 @source "../../app/";
+
+@source inline("{pt,pb}-{1..24}");
+@source inline("{from,via,to}-{theme-brown,theme-orange,theme-dark-blue,theme-light-blue,theme-footer-tan,theme-yellow,theme-green,theme-footer-light-tan,black,white}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:,hover:,focus:,active:}bg-{theme-brown,theme-orange,theme-dark-blue,theme-light-blue,theme-footer-tan,theme-yellow,theme-green,theme-footer-light-tan,black,white}");
+
+@theme {
+    --color-*: initial;
+    --color-theme-brown: #874707;
+    --color-theme-orange: #e35205;
+    --color-theme-dark-blue: #0c384d;
+    --color-theme-light-blue: #00aed7;
+    --color-theme-footer-tan: #d3bea6;
+    --color-theme-yellow: #eaa400;
+    --color-theme-green: #878707;
+    --color-theme-footer-light-tan: #f3ece6;
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+    --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+    --font-futura: "Futura Std", "sans-serif";
+    --breakpoint-3xl: 1920px;
+}
+
+html {
+    @apply font-futura;
+    color: #2e2e2e;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-futura leading-[1.4];
+}
+
+h3 {
+    @apply text-3xl;
+}
+
+.prose a {
+    @apply text-theme-brown hover:text-theme-orange transition-colors duration-300 ease-fluid;
+}
+
+.prose {
+    @apply text-xl leading-relaxed;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+    @apply mb-10 font-[800];
+}
+
+.prose ul {
+    @apply list-disc list-inside mb-6;
+}
+
+.prose p:not(:last-child) {
+    @apply mb-6;
+}
+
+.animate-in {
+    animation: zoomTextUp 0.75s ease-in-out forwards;
+}
+
+.animate-zoom {
+    animation: zoomInOnce 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.75s ease-in-out forwards;
+}
+
+@keyframes zoomInOnce {
+    0% {
+        transform: scale(1);
+        filter: blur(2px);
+    }
+
+    100% {
+        transform: scale(1.05);
+        filter: blur(0px);
+    }
+}
+
+@keyframes zoomTextUp {
+    0% {
+        transform: translateY(30px);
+
+    }
+
+    100% {
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

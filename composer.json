@@ -28,6 +28,10 @@
       "type": "composer",
       "url": "https://wpackagist.org",
       "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    },
+    {
+      "type": "composer",
+      "url": "https://connect.advancedcustomfields.com"
     }
   ],
   "require": {
@@ -39,7 +43,12 @@
     "roots/bedrock-disallow-indexing": "^2.0",
     "roots/wordpress": "6.8.2",
     "roots/wp-config": "1.0.0",
-    "wpackagist-theme/twentytwentyfive": "^1.0"
+    "wpackagist-theme/twentytwentyfive": "^1.0",
+    "wpengine/advanced-custom-fields-pro": "6.5.0.1",
+    "log1x/acf-composer": "^3.4",
+    "log1x/acf-editor-palette": "^1.2",
+    "yoast/wordpress-seo": "^25.7",
+    "yoast/duplicate-post": "dev-trunk"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
