@@ -24,5 +24,10 @@
   },
   "volta": {
     "node": "20.18.1"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.14.9",
+    "@alpinejs/intersect": "^3.14.9",
+    "alpinejs": "^3.14.9"
   }
 }

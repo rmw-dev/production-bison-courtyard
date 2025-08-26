@@ -19,7 +19,7 @@
 
       @include('sections.header')
 
-      <main id="main" class="main">
+      <main id="main" class="main max-w-[1920px] mx-auto" role="main">
         @yield('content')
       </main>
 
