@@ -24,7 +24,7 @@ class HeaderSection extends AbstractBlock
     public $keywords = [];
 
     /** @var array */
-    public $post_types = ['post', 'page'];
+    public $post_types = ['post', 'page', 'store'];
 
     /** @var array */
     public $parent = [];

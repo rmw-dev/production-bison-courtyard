@@ -6,6 +6,8 @@ import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import intersect from '@alpinejs/intersect'
 
+import './contactForm.js'
+
 // Plugins (optional but handy)
 Alpine.plugin(collapse)
 Alpine.plugin(intersect)
@@ -39,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-in-up");
-        entry.target.querySelector('img').classList.add("animate-zoom");
+        entry.target.parentElement.querySelectorAll('.event-card').forEach(card => card.classList.add("animate-in-up"));
+        
         obs.unobserve(entry.target); // run only once
       }
     });

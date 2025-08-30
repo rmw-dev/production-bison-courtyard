@@ -10,18 +10,19 @@
     <a class="brand" href="{{ home_url('/') }}">
       <img
         src="{{ $pageSettings['solid_header'] === true ? Vite::asset('resources/images/logo-full-colour.svg') : Vite::asset('resources/images/logo-white.svg') }}"
-        class="w-48 md:w-64"
+        class="w-32 md:w-64"
         alt="{!! $siteName !!}">
     </a>
 
     <!-- Toggle button -->
     <button
       type="button"
-      class="p-2 hover:cursor-pointer outline-none focus:outline-none {{ $pageSettings['solid_header'] === true ? 'text-black' : 'text-white' }}"
+      class="z-100 p-2 hover:cursor-pointer outline-none focus:outline-none {{ $pageSettings['solid_header'] === true ? 'text-black solid' : 'text-white' }}"
       @click="open = !open"
       :aria-expanded="open.toString()"
       aria-controls="site-menu"
       aria-label="Toggle menu"
+      x-bind:class="open ? 'open' : ''"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="miter">
         <line x1="1" y1="12" x2="23" y2="12"
@@ -161,7 +162,6 @@
   @endif
 
   @if (has_nav_menu('primary_navigation'))
-    {{-- MOBILE OVERLAY (unchanged) --}}
     <div
       x-show="open"
       x-transition:enter="transition ease-out duration-200"
@@ -170,30 +170,44 @@
       x-transition:leave="transition ease-in duration-150"
       x-transition:leave-start="opacity-100 translate-y-0"
       x-transition:leave-end="opacity-0 translate-y-2"
-      class="lg:hidden fixed inset-0 top-[calc(var(--header-height,0px))] z-50 bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80"
+      class="lg:hidden fixed inset-0 top-[calc(var(--header-height,0px))] z-50 bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 z-0"
       @click.outside="open = false"
       x-trap.noscroll="open"
     >
-      <div class="p-6 pt-4 min-h-full">
-        <nav class="flex flex-col gap-2 text-black text-2xl font-semibold">
-          @foreach ($tree as $parent)
-            <div x-data="{ expanded: false }" class="border-b border-gray-200 pb-2">
+      <div class="p-6 pt-4 min-h-full flex flex-col justify-center">
+        <nav
+          class="flex flex-col gap-2 text-black text-2xl font-[800]"
+          x-data="{ openIndex: null }"
+        >
+          @foreach ($tree as $idx => $parent)
+            <div class="border-b border-gray-200 pb-2">
               <button
                 type="button"
                 class="w-full flex justify-between items-center py-2 text-left"
-                @click="expanded = !expanded"
+                @click="openIndex = (openIndex === {{ $idx }}) ? null : {{ $idx }}"
+                :aria-expanded="openIndex === {{ $idx }}"
+                aria-controls="submenu-{{ $idx }}"
               >
                 <span>{{ $parent['item']->title }}</span>
                 @if (!empty($parent['children']))
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform duration-200"
-                      :class="{ 'rotate-180': expanded }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 transition-transform duration-200"
+                      :class="openIndex === {{ $idx }} ? 'rotate-180' : ''"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M19 9l-7 7-7-7" />
                   </svg>
                 @endif
               </button>
 
               @if (!empty($parent['children']))
-                <div x-show="expanded" x-transition class="ml-4 flex flex-col gap-2 text-lg font-normal" x-cloak>
+                <div
+                  id="submenu-{{ $idx }}"
+                  x-show="openIndex === {{ $idx }}"
+                  x-collapse.duration.200ms
+                  x-cloak
+                  class="ml-4 flex flex-col gap-2 text-lg font-normal"
+                >
                   @foreach ($parent['children'] as $child)
                     <a href="{{ $child->url ?? '#' }}" class="block py-1">{{ $child->title }}</a>
                   @endforeach
@@ -205,4 +219,5 @@
       </div>
     </div>
   @endif
+
 </header>

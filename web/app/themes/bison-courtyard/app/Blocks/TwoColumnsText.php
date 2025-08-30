@@ -161,7 +161,7 @@ protected function withBlock(): array
         'left_content'  => get_field('left_content'),
         'right_content'  => get_field('right_content'),
         'left_vertical_center_align_class'  => get_field('left_vertical_center_align') ? 'justify-center' : '',
-        'right_vertical_center_align_class'  => get_field('right_vertical_center') ? 'justify-center' : '',
+        'right_vertical_center_align_class'  => get_field('right_vertical_center_align') ? 'justify-center' : '',
         'text_class'  => 'text-' . get_field('text_color'),
         'has_overlapping_image_below'  =>  get_field('has_overlapping_image_below'),
     ];

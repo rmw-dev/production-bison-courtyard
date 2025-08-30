@@ -21,15 +21,15 @@ class StoreFields extends Field
             ->addTab('Store Details')
             ->addWysiwyg('store_hours', [
                 'label' => 'Store Hours',
-                'instructions' => 'Add a description for the store.',
+                'instructions' => 'Store opening hours.',
                 'required' => 0,
                 'tabs' => 'all',
                 'toolbar' => 'full',
                 'media_upload' => 1,
             ])
             ->addWysiwyg('store_contact_details', [
-                'label' => 'Store Hours',
-                'instructions' => 'Add a description for the store.',
+                'label' => 'Contact Details',
+                'instructions' => 'Store contact details such as phone number and email address.',
                 'required' => 0,
                 'tabs' => 'all',
                 'toolbar' => 'full',
@@ -41,6 +41,17 @@ class StoreFields extends Field
             ->addText('store_twitter_address')
 
             ->addTab('Images')
+
+            ->addImage('store_image', [
+                'label' => 'Store Image',
+                'instructions' => 'Image to display for the store.',
+                'required' => 0,
+                'return_format' => 'integer',
+                'preview_size'  => 'medium',
+                'library' => 'all',
+            ]);
+
+            /*->addTab('Images')
             
             ->addImage('center_image', [
             'label' => 'Center Image',
@@ -69,7 +80,7 @@ class StoreFields extends Field
             ->addField('right_color', 'editor_palette')
                 ->setConfig('default_value', 'white')
                 ->setConfig('allowed_colors', ['theme-brown', 'theme-orange', 'theme-yellow', 'theme-dark-blue', 'theme-light-blue', 'theme-footer-tan', 'theme-footer-light-tan', 'white', 'black'])
-                ->setConfig('return_format', 'slug');
+                ->setConfig('return_format', 'slug');*/
 
 
 

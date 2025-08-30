@@ -169,3 +169,20 @@ add_action('widgets_init', function () {
     ] + $config);
 
 });
+
+
+add_action('wp_enqueue_scripts', function () {
+  // Your compiled JS should include `import './gmap'`
+  // e.g., Bud/Sage does this automatically when you import in app.js
+
+  $api_key = env('GOOGLE_MAPS_API_KEY');
+  if ($api_key) {
+    wp_enqueue_script(
+      'google-maps',
+      "https://maps.googleapis.com/maps/api/js?key={$api_key}&callback=__rmwInitMaps",
+      [],
+      null,
+      true
+    );
+  }
+}, 20);

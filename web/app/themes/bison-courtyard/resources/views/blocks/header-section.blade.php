@@ -17,7 +17,7 @@
 @endphp
 
 <section class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
-  <div class="px-32 bg-gradient-to-b from-white from-50% to-theme-footer-light-tan to-50%">
+  <div class="px-8 lg:px-32 bg-gradient-to-b from-white from-50% to-theme-footer-light-tan to-50%">
     <div class="flex flex-col relative">
       @if($imgBackgroundUrl)
         <picture class="pointer-events-none inset-0">
@@ -35,10 +35,11 @@
       <div class="absolute inset-0" style="background-color: rgba(0,0,0,{{ $overlay_opacity }});"></div>
       
       
-      <div class="flex flex-col absolute inset-0">
+      <div class="flex flex-col absolute inset-0 ">
         {{-- Images --}}
-        <div class="grid grid-cols-[1fr_1.4fr_1fr] gap-16 h-full px-16 items-end">
-          <div class="relative h-5/6 overflow-hidden {{ $left_color }}">
+        <div class="grid grid-cols-[1fr_1.4fr_1fr] gap-[5%] h-full px-[5%] items-end">
+          <div class="relative h-5/6 overflow-hidden {{ $left_color }} animate-fade-in" style="animation-delay: 0.25s;">
+            {{-- Left Image --}}
             <svg viewBox="0 0 100 150" class="absolute inset-0 w-full h-full">
               <defs>
                 <clipPath id="arch" clipPathUnits="objectBoundingBox">
@@ -56,7 +57,7 @@
             </svg>
           </div>
           {{-- Center Image --}}
-         <div class="relative h-full {{ $center_color }}">
+         <div class="relative h-full {{ $center_color }} animate-fade-in-down" style="animation-delay: 0s;">
             <div class="absolute top-0 h-[500px] w-full -mt-[500px] z-100 {{ $center_color }}"></div>
             <svg viewBox="0 0 100 150" class="absolute inset-0 w-full h-full">
               <defs>
@@ -77,7 +78,8 @@
           </div>
 
 
-          <div class="relative h-5/6 overflow-hidden {{ $right_color }}">
+          <div class="relative h-5/6 overflow-hidden {{ $right_color }} animate-fade-in" style="animation-delay: 0.25s;" >
+            {{-- Right Image --}}
             <svg viewBox="0 0 100 150" class="absolute inset-0 w-full h-full">
               <defs>
                 <clipPath id="arch" clipPathUnits="objectBoundingBox">
@@ -96,15 +98,12 @@
           </div>
         </div>
         {{-- Content --}}
-        <div class="text-white text-6xl text-center w-full py-12 font-[800] mt-auto">
+        <div class="text-white text-2xl md:text-3xl lg:text-6xl text-center w-full pt-[3%] pb-[2%] font-[800] mt-auto animate-fade-in" style="animation-delay: 0.95s;">
           {{ $heading }}
         </div>
       </div>
-
-
-
     </div>
-    <div class="p-24 text-3xl text-center font-[800]">
+    <div class="px-8 md:p-24 text-xl md:text-4xl text-center font-medium">
       {!! $sub_heading !!}
     </div>
   </div>

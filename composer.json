@@ -32,6 +32,18 @@
     {
       "type": "composer",
       "url": "https://connect.advancedcustomfields.com"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "kinsta/kinsta-mu-plugins",
+        "type": "wordpress-muplugin",
+        "version": "2.3.7",
+        "dist": {
+          "url": "https://kinsta.com/kinsta-tools/kinsta-mu-plugins.zip",
+          "type": "zip"
+        }
+      }
     }
   ],
   "require": {
@@ -48,7 +60,8 @@
     "log1x/acf-composer": "^3.4",
     "log1x/acf-editor-palette": "^1.2",
     "yoast/wordpress-seo": "^25.7",
-    "yoast/duplicate-post": "dev-trunk"
+    "yoast/duplicate-post": "dev-trunk",
+    "kinsta/kinsta-mu-plugins": "^2.3"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
