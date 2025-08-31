@@ -44,6 +44,7 @@ class ContactFormSection extends AbstractBlock
     /** @var string */
     public $align_content = '';
 
+    
     /** @var array */
     public $spacing = [
         'padding' => null,

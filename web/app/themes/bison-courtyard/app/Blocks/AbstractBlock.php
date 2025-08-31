@@ -9,6 +9,8 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 abstract class AbstractBlock extends Block
 {
+
+    public $blockVersion = '3';
     /**
      * Child blocks must implement this to add their own fields.
      */

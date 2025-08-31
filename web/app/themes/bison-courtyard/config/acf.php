@@ -49,7 +49,7 @@ return [
     */
 
     'blocks' => [
-        'apiVersion' => 2,
+        'apiVersion' => 3,
     ],
 
     /*

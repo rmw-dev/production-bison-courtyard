@@ -17,8 +17,17 @@
       @if(!empty($image['url']))
         <div class="relative flex justify-center">
           <div class="arch relative overflow-hidden rounded-t-[9999px] w-3/4">
-            <img src="{{ $image['url'] }}" alt="{{ $image['alt'] }}" class="w-full h-full object-cover aspect-2/3 zoom-hover">
-            <span class="pointer-events-none absolute inset-10 rounded-t-[9999px] border border-white border-3"></span>
+            {!! wp_get_attachment_image(
+                $image['ID'],          // requires that your ACF field returns array (ID, url, alt, etc.)
+                'full',                // or a registered size, e.g. 'hero-1920'
+                false,                 // icon?
+                [
+                  'class' => 'w-full h-full object-cover aspect-2/3 zoom-hover',
+                  'alt'   => $image['alt'], // override WP alt if needed
+                  'sizes' => '(max-width: 1920px) 33vw, 600px', // optional, adjust as needed
+                ]
+            ) !!}
+            <span class="pointer-events-none absolute inset-8 rounded-t-[9999px] border border-white border-3"></span>
           </div>
         </div>
       @endif

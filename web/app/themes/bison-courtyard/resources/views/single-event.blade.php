@@ -17,7 +17,7 @@
                   @if (has_post_thumbnail())
                     {!! get_the_post_thumbnail(null, 'large', ['class' => 'w-full object-cover object-top h-full']) !!}
                   @endif
-                  <span class="pointer-events-none absolute inset-4 lg:inset-10 rounded-t-xl border border-white border-3"></span>
+                  <span class="pointer-events-none absolute inset-4 lg:inset-8 rounded-t-xl border border-white border-3"></span>
               </div>
           </div>
         @endif
