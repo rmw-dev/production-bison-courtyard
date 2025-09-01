@@ -79,7 +79,7 @@
             </div>
           </div>
           {{-- Center Image --}}
-         <div class="relative h-full {{ $center_color }} animate-fade-in" style="animation-delay: 0s;">
+         <div class="relative h-full {{ $center_color }} animate-fade-in max-h-[738px]" style="animation-delay: 0s;">
             <div class="absolute top-0 h-[500px] w-full -mt-[500px] z-100 {{ $center_color }}"></div>
               <div class="relative w-full h-full clip-arch2">
                 {!! wp_get_attachment_image(
