@@ -27,7 +27,7 @@
         title="Bison Courtyard"
         address="211 Bear St, Banff, AB"
         mapStyle="bison"
-        height="820px"
+        height="520px"
         class="rounded-xl overflow-hidden mt-10"
       />
     </div>
