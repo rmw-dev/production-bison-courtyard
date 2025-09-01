@@ -111,7 +111,7 @@
                 @foreach ($siteMenu as $item)
                   @if ($item->menu_item_parent === '0')
                     <a
-                      href="#"
+                      href="{{ $item->url ?? '#' }}"
                       x-ref="{{ $loop->first ? 'first' : 'link' }}"
                       class="relative text-black font-normal text-3xl !decoration-none py-1"
                       @mouseenter.prevent="

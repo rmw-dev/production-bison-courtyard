@@ -54,7 +54,7 @@
           <clipPath id="arch-tall" clipPathUnits="objectBoundingBox">
             <path d="M0.09,0.9
                     V0.30
-                    A0.42,0.3 0 0,1 0.91,0.30
+                    A0.41,0.3 0 0,1 0.91,0.30
                     V0.9 Z" />
           </clipPath>
         </defs>
