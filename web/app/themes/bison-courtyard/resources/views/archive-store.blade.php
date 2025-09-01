@@ -55,7 +55,7 @@
         {{-- Render grouped stores --}}
         @foreach ($groups as $group)
           <h2 class="mt-16 !text-3xl md:!text-5xl font-medium uppercase tracking-wider">
-            {{ $group['term']->name }}
+            {!! $group['term']->name !!}
           </h2>
 
           <div class="grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 pt-8">
