@@ -41,7 +41,7 @@
       </div>
       @endunless
       <form method="POST" action="/contact" data-endpoint="{{ $endpoint }}" data-nonce="{{ $restNonce }}" id="contact-form" class="mt-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
             <x-form-inputs.textbox label="First Name" name="first_name" />
             <x-form-inputs.textbox label="Last Name" name="last_name" />
             <x-form-inputs.textbox label="Contact Number" name="contact_number" />

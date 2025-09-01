@@ -4,9 +4,9 @@
     'rows' => 7,
 ])
 
-<div class="form-group flex flex-col w-full">
+<div class="form-group flex flex-col w-full mt-4">
     @if($label)
-        <label for="{{ $name }}" class="text-xl font-normal uppercase text-[#3a2a21]">
+        <label for="{{ $name }}" class="text-xl font-medium uppercase text-[#3a2a21]">
             {{ $label }}
         </label>
     @endif
