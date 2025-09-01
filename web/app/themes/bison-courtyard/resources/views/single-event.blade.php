@@ -60,7 +60,7 @@
               @include('partials.cards.event-card', ['i' => $i++])
             @endwhile
           @else
-            No other upcoming events
+            No additional upcoming events.
           @endif
           </div>
     </div>
