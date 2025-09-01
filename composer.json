@@ -61,7 +61,8 @@
     "log1x/acf-editor-palette": "^1.2",
     "yoast/wordpress-seo": "^25.7",
     "yoast/duplicate-post": "dev-trunk",
-    "kinsta/kinsta-mu-plugins": "^2.3"
+    "kinsta/kinsta-mu-plugins": "^2.3",
+    "wpackagist-plugin/tracking-code-manager": "^2.5"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
