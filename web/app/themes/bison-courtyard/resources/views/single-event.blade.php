@@ -59,6 +59,8 @@
             @while ($events->have_posts()) @php $events->the_post() @endphp
               @include('partials.cards.event-card', ['i' => $i++])
             @endwhile
+          @else
+            No other upcoming events
           @endif
           </div>
     </div>
