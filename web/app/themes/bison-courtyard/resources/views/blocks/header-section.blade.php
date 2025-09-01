@@ -52,9 +52,9 @@
       <svg viewBox="0 0 100 150" class="absolute inset-0 w-full h-full">
         <defs>
           <clipPath id="arch-tall" clipPathUnits="objectBoundingBox">
-            <path d="M0.08,0.9
+            <path d="M0.09,0.9
                     V0.30
-                    A0.42,0.3 0 0,1 0.92,0.30
+                    A0.42,0.3 0 0,1 0.91,0.30
                     V0.9 Z" />
           </clipPath>
         </defs>
