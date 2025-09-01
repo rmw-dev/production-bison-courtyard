@@ -10,6 +10,7 @@ class RMWSite
         $this->load_post_types();
         $this->load_taxonomies();
         $this->load_acf_fields();
+        $this->load_rest_endpoints();
     }
 
     protected function load_helpers(): void
@@ -29,6 +30,12 @@ class RMWSite
     protected function load_taxonomies(): void
     {
         $dir = __DIR__ . '/taxonomies';
+        $this->load_files_in_dir($dir);
+    }
+
+    protected function load_rest_endpoints(): void
+    {
+        $dir = __DIR__ . '/rest-endpoints';
         $this->load_files_in_dir($dir);
     }
 

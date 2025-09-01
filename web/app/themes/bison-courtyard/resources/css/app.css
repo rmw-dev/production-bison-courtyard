@@ -4,7 +4,7 @@
 @source "../views/";
 @source "../../app/";
 
-@source inline("{pt,pb}-{1..24}");
+@source inline("{,md:,lg:,xl:,2xl:,3xl:}{pt,pb}-{1..24}");
 @source inline("{from,via,to}-{theme-brown,theme-orange,theme-dark-blue,theme-light-blue,theme-footer-tan,theme-yellow,theme-green,theme-footer-light-tan,black,white}");
 @source inline("{,sm:,md:,lg:,xl:,2xl:,hover:,focus:,active:}bg-{theme-brown,theme-orange,theme-dark-blue,theme-light-blue,theme-footer-tan,theme-yellow,theme-green,theme-footer-light-tan,black,white}");
 
@@ -20,11 +20,15 @@
     --color-theme-footer-light-tan: #f3ece6;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-red-600: #dc2626;
 
     --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
     --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
     --font-futura: "Futura Std", "sans-serif";
+    --font-futura-condensed: "Futura Condensed", "sans-serif";
+    --breakpoint-2xl: 1700px;
     --breakpoint-3xl: 1920px;
+
 }
 
 html {
@@ -42,11 +46,28 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-futura leading-[1.4];
+    @apply leading-[1.2] md:leading-[1.3] lg:leading-[1.4];
+}
+
+/* h1 {
+    @apply text-5xl;
+} */
+
+h2 {
+    @apply text-4xl;
 }
 
 h3 {
     @apply text-3xl;
+}
+
+h4 {
+    @apply text-2xl;
+
+}
+
+h5 {
+    @apply text-xl;
 }
 
 .prose a {
@@ -54,33 +75,143 @@ h3 {
 }
 
 .prose {
-    @apply text-xl leading-relaxed;
+    @apply text-base md:text-xl leading-relaxed;
 }
 
 .prose h1,
 .prose h2,
-.prose h3 {
-    @apply mb-10 font-[800];
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    @apply font-[800];
 }
+
+
+.prose h1:not(:last-child),
+.prose h2:not(:last-child),
+.prose h3:not(:last-child),
+.prose h4:not(:last-child),
+.prose h5:not(:last-child),
+.prose h6:not(:last-child) {
+    @apply mb-4 md:mb-12;
+}
+
+.prose h1 {
+    @apply text-4xl md:text-5xl;
+}
+
+.prose h2 {
+    @apply text-3xl md:text-4xl;
+}
+
+.prose h3 {
+    @apply text-2xl md:text-3xl;
+}
+
+.prose h4 {
+    @apply text-xl md:text-2xl;
+}
+
+.prose h5 {
+    @apply text-xl;
+}
+
+.prose h6 {
+    @apply text-base;
+}
+
 
 .prose ul {
     @apply list-disc list-inside mb-6;
 }
 
+.prose p {
+    @apply leading-8 md:leading-10;
+}
+
 .prose p:not(:last-child) {
-    @apply mb-6;
+    @apply mb-3 md:mb-6;
+}
+
+.clip-arch {
+    clip-path: url(#arch);
+
+}
+
+.clip-arch-tall {
+    clip-path: url(#arch-tall);
+
 }
 
 .animate-in {
-    animation: zoomTextUp 0.75s ease-in-out forwards;
+    animation: zoomTextUp 1s ease-in-out forwards;
+}
+
+.open svg {
+    @apply text-black lg:text-white;
+}
+
+.open.solid svg {
+    @apply text-black lg:text-black;
+}
+
+
+footer .widget p,
+footer .widget a {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+footer .widget p::after,
+footer .widget a::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+footer .widget p:hover::after,
+footer .widget a:hover::after {
+    transform: scaleX(1);
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
 }
 
 .animate-zoom {
-    animation: zoomInOnce 1s ease-out forwards;
+    animation: zoomInOnce 1s ease-in-out forwards;
 }
 
-.animate-fade-in-up {
+.animate-zoom-slow {
+    animation: zoomInOnce 1.75s ease-in-out forwards;
+}
+
+.animate-in-right {
+    animation: fadeInRight 0.75s ease-in-out forwards;
+    transform-origin: right;
+}
+
+.animate-in-up {
     animation: fadeInUp 0.75s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.75s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-200px);
 }
 
 @keyframes zoomInOnce {
@@ -95,13 +226,27 @@ h3 {
     }
 }
 
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes zoomTextUp {
     0% {
+        opacity: 0;
         transform: translateY(30px);
 
     }
 
     100% {
+        opacity: 1;
         transform: translateY(0);
 
     }
@@ -116,6 +261,30 @@ h3 {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 
 }

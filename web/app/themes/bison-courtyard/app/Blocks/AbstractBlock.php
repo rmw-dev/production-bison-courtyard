@@ -9,6 +9,8 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 abstract class AbstractBlock extends Block
 {
+
+    public $blockVersion = '3';
     /**
      * Child blocks must implement this to add their own fields.
      */
@@ -85,14 +87,15 @@ abstract class AbstractBlock extends Block
         $pb = get_field('padding_bottom');
         $bg = get_field('background_color');
 
-
+        $pt_string = 'pt-' . floor($pt / 2) . ' md:pt-' . $pt;
+        $pb_string = 'pb-' . floor($pb / 2) . ' md:pb-' . $pb;
 
         $padding_class = [];
         if (is_numeric($pt)) {
-            $padding_class[] = "pt-{$pt}";
+            $padding_class[] = $pt_string;
         }
         if (is_numeric($pb)) {
-            $padding_class[] = "pb-{$pb}";
+            $padding_class[] = $pb_string;
         }
 
         return [

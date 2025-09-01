@@ -13,7 +13,7 @@
         {!! do_blocks( get_post_field('post_content', $page_id) ) !!}
       </div>
     @endif
-
+    <div class="mx-8 lg:mx-16">
     {{-- Native archive loop (pagination, SEO, all intact) --}}
     @if (have_posts())
 
@@ -49,9 +49,9 @@
 
       {{-- Render grouped stores --}}
       @foreach ($groups as $group)
-        <h2 class="mt-16 text-2xl font-bold">{!! $group['term']->name !!}</h2>
+        <h2 class="mt-16 !text-3xl md:!text-5xl font-medium uppercase tracking-wider">{!! $group['term']->name !!}</h2>
 
-        <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 pt-8">
+        <div class="grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:grid-cols-2 pt-8">
           @foreach ($group['posts'] as $p)
             @php $post = $p; setup_postdata($post); @endphp
             @include('partials.cards.store-card', ['i' => 0]) {{-- or your card partial --}}
@@ -78,7 +78,7 @@
     @else
       <p class="text-gray-600">{{ __('No stores found.', 'td') }}</p>
     @endif
-
+    </div>
   </div>
 
 @endsection

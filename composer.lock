@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b14a2f9c1b03e933e4ad2a0775ecb328",
+    "content-hash": "f0c90710c588f79ca3ac9555b389bbb5",
     "packages": [
         {
             "name": "composer/installers",
@@ -303,6 +303,15 @@
                 }
             ],
             "time": "2024-07-20T21:45:45+00:00"
+        },
+        {
+            "name": "kinsta/kinsta-mu-plugins",
+            "version": "2.3.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://kinsta.com/kinsta-tools/kinsta-mu-plugins.zip"
+            },
+            "type": "wordpress-muplugin"
         },
         {
             "name": "laravel/prompts",
@@ -2532,6 +2541,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "yoast/duplicate-post": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

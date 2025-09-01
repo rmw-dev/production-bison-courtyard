@@ -24,7 +24,7 @@ class HeaderSection extends AbstractBlock
     public $keywords = [];
 
     /** @var array */
-    public $post_types = ['post', 'page'];
+    public $post_types = ['post', 'page', 'store'];
 
     /** @var array */
     public $parent = [];
@@ -149,8 +149,12 @@ class HeaderSection extends AbstractBlock
         ->addField('right_color', 'editor_palette')
             ->setConfig('default_value', 'white')
             ->setConfig('allowed_colors', ['theme-brown', 'theme-orange', 'theme-yellow', 'theme-dark-blue', 'theme-light-blue', 'theme-footer-tan', 'theme-footer-light-tan', 'white', 'black'])
-            ->setConfig('return_format', 'slug');
-        
+            ->setConfig('return_format', 'slug')
+        ->addImage('mobile_header_image', [
+            'label' => 'Mobile Header Image',
+            'return_format' => 'array',
+            'preview_size'  => 'large',
+        ]);
 
         return $fields;
     }
@@ -175,6 +179,7 @@ class HeaderSection extends AbstractBlock
             'left_color'   => 'bg-' . (get_field('left_color') ?: 'white'),
             'center_color' => 'bg-' . (get_field('center_color') ?: 'white'),
             'right_color'  => 'bg-' . (get_field('right_color') ?: 'white'),
+            'mobile_header_image' => get_field('mobile_header_image'),
         ];
     }
 
