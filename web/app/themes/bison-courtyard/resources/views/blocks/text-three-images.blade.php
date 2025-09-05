@@ -5,7 +5,7 @@
     </h2>
   @endif
   @if(!empty($show_event && $show_event === true))
-    <div class="w-full bg-theme-footer-light-tan px-32 py-16 mb-16 text-xl grid grid-cols-2 gap-16 justify-center items-center">
+    <div class="w-full bg-theme-footer-light-tan px-32 py-16 mb-16 text-xl grid lg:grid-cols-2 gap-16 justify-center items-center">
       <div class="">
         <h2 class="font-[800] mb-4">Featured Event</h2>
         <h3 class="mb-2"> {{ $featured_event->post_title }}</h2>
