@@ -1,9 +1,23 @@
 <section class="relative block-three-images-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
   @if(!empty($heading))
-      <h2 class="flex flex-col justify-center bg-theme-footer-light-tan lg:{{ $layout['background_color'] ?? '' }} font-[800] text-3xl md:text-5xl py-16 lg:mb-8 text-center px-8 lg:px-32">
-        {{ $heading }}
-      </h2>
-    @endif
+    <h2 class="flex flex-col justify-center bg-theme-footer-light-tan lg:{{ $layout['background_color'] ?? '' }} font-[800] text-3xl md:text-5xl py-16 lg:mb-8 text-center px-8 lg:px-32">
+      {{ $heading }}
+    </h2>
+  @endif
+  @if(!empty($show_event && $show_event === true))
+    <div class="w-full bg-theme-footer-light-tan px-32 py-16 mb-16 text-xl grid grid-cols-2 gap-16 justify-center items-center">
+      <div class="">
+        <h2 class="font-[800] mb-4">Featured Event</h2>
+        <h3 class="mb-2"> {{ $featured_event->post_title }}</h2>
+        <p class="mt-0 mb-10 border-b pb-4">{{ get_field('event_date_start', $featured_event->ID) }}</p>
+        <div class="prose">{!! get_field('event_featured_excerpt', $featured_event->ID) !!}</div>
+      </div>
+      <div>
+         {!! wp_get_attachment_image(get_field('event_featured_image', $featured_event->ID), 'full', false, ['class' => 'w-full']); !!}
+      </div>
+    </div>
+  @endif
+
   <div class="mx-auto max-w-[1920px] px-8 lg:px-32">
     <div class="grid grid-cols-32 auto-rows-32">
       @if(!empty($image_1['id']))
