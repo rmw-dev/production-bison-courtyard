@@ -4,7 +4,7 @@
     'type' => 'text',
 ])
 
-<div class="form-group flex flex-col mb-6 w-full">
+<div class="form-group flex flex-col mb-0 w-full">
     @if($label)
         <label for="{{ $name }}" class="text-xl font-medium uppercase mb-2">
             {{ $label }}

@@ -52,9 +52,9 @@
       <svg viewBox="0 0 100 150" class="absolute inset-0 w-full h-full">
         <defs>
           <clipPath id="arch-tall" clipPathUnits="objectBoundingBox">
-            <path d="M0.08,0.9
+            <path d="M0.09,0.9
                     V0.30
-                    A0.42,0.3 0 0,1 0.92,0.30
+                    A0.41,0.3 0 0,1 0.91,0.30
                     V0.9 Z" />
           </clipPath>
         </defs>
@@ -79,7 +79,7 @@
             </div>
           </div>
           {{-- Center Image --}}
-         <div class="relative h-full {{ $center_color }} animate-fade-in" style="animation-delay: 0s;">
+         <div class="relative h-full {{ $center_color }} animate-fade-in max-h-[738px]" style="animation-delay: 0s;">
             <div class="absolute top-0 h-[500px] w-full -mt-[500px] z-100 {{ $center_color }}"></div>
               <div class="relative w-full h-full clip-arch2">
                 {!! wp_get_attachment_image(
