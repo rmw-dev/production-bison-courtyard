@@ -11,6 +11,7 @@
         <h3 class="mb-2"> {{ $featured_event->post_title }}</h2>
         <p class="mt-0 mb-10 border-b pb-4">{{ get_field('event_date_start', $featured_event->ID) }}</p>
         <div class="prose">{!! get_field('event_featured_excerpt', $featured_event->ID) !!}</div>
+        <x-button :href="get_permalink($featured_event->ID)" class="mt-8">Learn More</x-button>
       </div>
       <div>
          {!! wp_get_attachment_image(get_field('event_featured_image', $featured_event->ID), 'full', false, ['class' => 'w-full']); !!}
