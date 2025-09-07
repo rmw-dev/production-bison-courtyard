@@ -4,7 +4,7 @@
       {{-- Left Column --}}
       <div class="{{ $text_left_side ? 'order-1' : 'order-0' }}">
       @unless(empty($text_heading))
-        <div class="text-5xl mb-12 ">
+        <div class="text-3xl lg:text-5xl lg:mb-12 ">
           {{ $text_heading }}
         </div>
       @endunless
@@ -14,13 +14,14 @@
         </div>
       @endunless
       @unless(empty($text_buttons) || !is_array($text_buttons))
-      <div class="flex gap-8">
+      <div class="flex flex-wrap gap-x-8 gap-y-4 mt-8">
+        
         @foreach ($text_buttons as $button)
           <x-button 
             :href="$button['button_link']['url'] ?? '#'" 
             :variant="$button['button_style'] ?? 'primary'"
             :target="$button['button_link']['target'] ?? ''"
-            class="mt-8"
+            class="shrink-0"
           > 
               {{ $button['button_link']['title'] ?? 'Learn More' }}
           </x-button>
