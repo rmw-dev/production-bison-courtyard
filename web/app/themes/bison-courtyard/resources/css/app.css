@@ -34,11 +34,18 @@
 html {
     @apply font-futura;
     color: #2e2e2e;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow: hidden;
 }
 
 [x-cloak] {
     display: none !important;
 }
+
 
 h1,
 h2,

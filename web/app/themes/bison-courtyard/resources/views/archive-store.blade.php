@@ -54,7 +54,7 @@
 
         {{-- Render grouped stores --}}
         @foreach ($groups as $group)
-          <h2 class="mt-16 !text-3xl md:!text-5xl font-medium uppercase tracking-wider">
+          <h2 id="{{ $group['term']->slug}}" class="pt-16 !text-3xl md:!text-5xl font-medium uppercase tracking-wider">
             {!! $group['term']->name !!}
           </h2>
 
