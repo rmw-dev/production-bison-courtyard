@@ -7,7 +7,7 @@
   'target'    => null,           // e.g., _blank
   'rel'       => null,           // e.g., noreferrer noopener
   // Styling
-  'variant'   => 'primary',      // primary|secondary
+  'variant'   => 'primary',      // primary|secondary|tertiary
   'size'      => 'lg',           // xs|sm|md|lg
   'full'      => false,          // full-width
 ])
@@ -18,7 +18,8 @@
 
   $variants = [
     'primary'   => 'bg-theme-orange text-white hover:bg-theme-orange/90 focus-visible:ring-black',
-    'secondary' => 'bg-theme-blue text-white hover:bg-theme-orange/90 focus-visible:ring-black',
+    'secondary' => 'bg-theme-brown text-white hover:bg-theme-brown/90 focus-visible:ring-black',
+    'tertiary' => 'bg-theme-dark-blue text-white hover:bg-theme-dark-blue/90 focus-visible:ring-black',
   ];
 
   $sizes = [

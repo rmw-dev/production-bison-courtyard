@@ -89,6 +89,39 @@ class TextThreeImages extends AbstractBlock
         'core/paragraph' => ['placeholder' => 'Welcome to the Hero Section block.'],
     ];
 
+    protected function getChoices(){
+        $events = get_posts([
+            'post_type' => 'event',
+            'numberposts' => -1,
+            'post_status' => 'publish',
+        ]);
+
+        $choices = [];
+        foreach ($events as $event) {
+            $choices[] = [$event->ID => $event->post_title];
+        }
+
+        return $choices;
+    }
+
+    protected function getFeaturedEvent(){
+
+        if (get_field('event_selection_mode')) {
+            $event_id = get_field('event_manual_event'); // make sure field name matches
+            
+            return $event_id ? get_post($event_id) : null;
+        } else {
+
+            
+            $events = get_posts([
+                'post_type'      => 'event',
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+            ]);
+        return $events ? $events[0] : null;
+        }   
+    }
+
     /**
      * Define block-specific fields (shared layout is injected by AbstractBlock).
      */
@@ -124,8 +157,53 @@ class TextThreeImages extends AbstractBlock
             'label' => 'Image 3',
             'return_format' => 'array',
             'preview_size' => 'medium',
-        ]);
+        ])
 
+        ->addTab('event_showcase', ['label' => 'Event', 'placement' => 'left'])
+
+        ->addTrueFalse('show_event', [
+            'label'        => 'Show Event',
+            'instructions' => 'Enable to show a featured event.',
+            'default_value'=> false,
+            'ui'           => true,
+            'ui_on_text'   => 'Show',
+            'ui_off_text'  => "Don't Show",
+        ])
+        ->addRadio('event_text_side', [
+            'label' => 'Text Side',
+            'instructions' => 'Select the side for the text content.',
+            'default_value' => 'left',
+            'ui' => true,
+            'choices' => [
+                'left'  => 'Left',
+                'right' => 'Right',
+            ],
+        ])
+
+        ->addRadio('event_selection_mode', [
+            'label'        => 'Event Selection Mode',
+            'instructions' => 'Pick next event automatically or select a specific event.',
+            'default_value'=> true,
+            'ui'           => true,
+            'choices' => [
+                ['0'  => 'Automatic'],
+                ['1' => 'Manual'],
+            ],
+        ])
+
+
+
+        ->addSelect('event_manual_event', [
+            'label' => 'Select Event',
+            'instructions' => 'Choose an event to display.',
+            'choices' => $this->getChoices(),
+            'return_format' => 'key',
+        ])
+        
+        ->conditional('event_selection_mode', '==', '1');
+
+    
+        
     return $fields;
 }
 
@@ -140,7 +218,16 @@ protected function withBlock(): array
         'image_1'  => get_field('image_1'),
         'image_2'  => get_field('image_2'),
         'image_3'  => get_field('image_3'),
+        'show_event' => get_field('show_event'),
+        'text_side' => get_field('text_side') ?: 'left',
+        'featured_event' => $this->getFeaturedEvent()
     ];
+}
+
+protected function getEvent($event_id): array
+{
+    var_dump($event_id);
+    return [];
 }
 
     

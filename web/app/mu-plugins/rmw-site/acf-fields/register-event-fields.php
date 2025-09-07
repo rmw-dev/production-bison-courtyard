@@ -27,6 +27,22 @@ class EventFields extends Field
                 'label' => 'Event End Date',
                 'instructions' => 'Select the date of the event.',
                 'required' => 1,
+            ])
+            ->addWysiwyg('event_featured_excerpt', [
+                'label' => 'Event Excerpt',
+                'instructions' => 'Text that will appear in Featured Events block.',
+                'required' => 0,
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+            ])
+            ->addImage('event_featured_image', [
+                'label' => 'Event Featured Image',
+                'instructions' => 'Image that will appear in Featured Events block.',
+                'required' => 0,
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
             ]);
 
         return $menuItem->build();

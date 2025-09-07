@@ -14,3 +14,6 @@ namespace App;
 add_filter('excerpt_more', function () {
     return sprintf('...');
 });
+
+
+add_filter( 'excerpt_length', function () { return 30; }, 999 );

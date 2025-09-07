@@ -112,6 +112,25 @@ class TwoColumnsImage extends AbstractBlock
             'toolbar' => 'full',
             'media_upload' => 1,
         ])
+
+        ->addRepeater('text_buttons', [
+            'label' => 'Buttons',
+            'layout' => 'row',
+            'button_label' => 'Add Button',
+        ])
+            ->addLink('button_link', ['label' => 'Button'])
+            ->addSelect('button_style', [
+                'label' => 'Button Style',
+                'choices' => [
+                    'primary' => 'Primary',
+                    'secondary' => 'Secondary',
+                    'tertiary' => 'Tertiary',
+                ],
+                'default_value' => 'primary',
+                'return_format' => 'value',
+            ])
+        ->endRepeater()
+
         ->addTrueFalse('text_side', [
             'label' => 'Text on Left Side',
             'ui' => 1,
@@ -131,6 +150,13 @@ class TwoColumnsImage extends AbstractBlock
             'library' => 'all',
             'wrapper' => ['width' => 50],
             
+        ])
+        
+        ->addTrueFalse('fancy_image', [
+            'label' => 'Fancy Image Style (Arch)',
+            'ui' => 1,
+            'default_value' => 0,
+            'wrapper' => ['width' => 50],
         ]);
 
         
@@ -149,8 +175,10 @@ protected function withBlock(): array
         'text_content'    => get_field('text_content'),
         'text_class'      => 'text-' . get_field('text_color'),
         'text_left_side'  => get_field('text_side'),
+        'text_buttons'    => get_field('text_buttons'),
         'image'           => get_field('image'),
-        'bleed_up'       => true
+        'fancy_image'     => get_field('fancy_image'),
+        'bleed_up'       => true,
         
     ];
 }
