@@ -13,8 +13,9 @@
         <div class="prose">{!! get_field('event_featured_excerpt', $featured_event->ID) !!}</div>
         <x-button :href="get_permalink($featured_event->ID)" class="mt-8">Learn More</x-button>
       </div>
-      <div>
-         {!! wp_get_attachment_image(get_field('event_featured_image', $featured_event->ID), 'full', false, ['class' => 'w-full']); !!}
+      <div class="relative overflow-hidden">
+         {!! wp_get_attachment_image(get_field('event_featured_image', $featured_event->ID), 'full', false, ['class' => 'w-full zoom-hover']); !!}
+         <span class="pointer-events-none absolute inset-4 lg:inset-8  border border-white border-3"></span>
       </div>
     </div>
   @endif
