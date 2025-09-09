@@ -1,5 +1,5 @@
 
-<section class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
+<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
   <div class="px-8 lg:px-32 grid md:grid-cols-2 text-xl lg:w-3/4 mx-auto gap-16">
     <div class="text-center md:text-left">
       <h2 class="text-4xl md:mt-32 mb-6 font-[800]">HOURS</h2>

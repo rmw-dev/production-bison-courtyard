@@ -1,18 +1,4 @@
-{{-- resources/views/blocks/hero-section.blade.php --}}
-@php
-  // preview state (object or array safe)
-  $isPreview = $is_preview
-    ?? (is_object($block ?? null) ? ($block->preview ?? false)
-    : (is_array($block ?? null) ? ($block['data']['is_preview'] ?? false) : false));
-
-  $imgId    = is_array($image ?? null) ? ($image['ID'] ?? null)   : ($image ?? null);
-  $imgAlt    = is_array($image ?? null) ? ($image['alt'] ?? '')     : '';
-  $posterUrl = is_array($poster ?? null) ? ($poster['url'] ?? null) : ($poster ?? null);
-  $overlay   = isset($overlay_opacity) ? max(0, min(1, (float) $overlay_opacity)) : 0.35;
-
-
-@endphp
-<section class="h-[80vh] relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
+<section id="{{$block->block?->anchor ?? '' }}" class="h-[80vh] relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
   
   {{-- Background media --}}
   @if(($media_type ?? 'image') === 'video' && ( !empty($video_mp4) || !empty($video_webm) ))

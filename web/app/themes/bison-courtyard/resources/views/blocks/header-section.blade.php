@@ -1,22 +1,4 @@
-{{-- resources/views/blocks/hero-section.blade.php --}}
-@php
-  // preview state (object or array safe)
-  $isPreview = $is_preview
-    ?? (is_object($block ?? null) ? ($block->preview ?? false)
-    : (is_array($block ?? null) ? ($block['data']['is_preview'] ?? false) : false));
-
-  $imgBackgroundId    = is_array($background_image ?? null) ? ($background_image['ID'] ?? null)   : ($background_image ?? null);
-  $imgBackgroundAlt    = is_array($background_image ?? null) ? ($background_image['alt'] ?? '')     : '';
-  $imgLeftId    = is_array($left_image ?? null) ? ($left_image['ID'] ?? null)   : ($left_image ?? null);
-  $imgLeftAlt    = is_array($left_image ?? null) ? ($left_image['alt'] ?? '')     : '';
-  $imgCenterId    = is_array($center_image ?? null) ? ($center_image['ID'] ?? null)   : ($center_image ?? null);
-  $imgCenterAlt    = is_array($center_image ?? null) ? ($center_image['alt'] ?? '')     : '';
-  $imgRightId    = is_array($right_image ?? null) ? ($right_image['ID'] ?? null)   : ($right_image ?? null);
-  $imgRightAlt    = is_array($right_image ?? null) ? ($right_image['alt'] ?? '')     : '';
-  $overlay   = isset($overlay_opacity) ? max(0, min(1, (float) $overlay_opacity)) : 0.35;
-@endphp
-
-<section class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} hidden md:block">
+<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} hidden md:block">
   <div class="px-8 lg:px-32 bg-gradient-to-b from-white from-50% to-theme-footer-light-tan to-50%">
     <div class="flex flex-col relative">
       @if($imgBackgroundId)

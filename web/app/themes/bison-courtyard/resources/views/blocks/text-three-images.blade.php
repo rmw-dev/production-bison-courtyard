@@ -1,4 +1,4 @@
-<section class="relative block-three-images-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
+<section id="{{$block->block?->anchor ?? '' }}" class="relative block-three-images-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
   @if(!empty($heading))
     <h2 class="flex flex-col justify-center {{$show_event && $show_event === true ? 'bg-white' : 'bg-theme-footer-light-tan' }} lg:{{ $layout['background_color'] ?? '' }} font-[800] text-3xl md:text-5xl py-16 lg:mb-8 text-center px-8 lg:px-32">
       {{ $heading }}
