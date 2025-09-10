@@ -1,8 +1,4 @@
-{{-- resources/views/partials/contact-form-section.blade.php --}}
-@php
-  $endpoint  = rest_url('rmw/v1/contact');
-  $restNonce = wp_create_nonce('wp_rest');
-@endphp
+
 
 <section id="{{$block->block?->anchor ?? '' }}" class="relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} px-8 md:px-24">
   <div class="grid lg:grid-cols-2 gap-12 lg:gap-24">

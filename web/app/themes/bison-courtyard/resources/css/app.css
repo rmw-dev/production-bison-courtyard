@@ -169,10 +169,8 @@ h5 {
 
 footer .widget p,
 footer .widget a {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
+    @apply relative inline-block cursor-pointer leading-[3] md:leading-[2];
+
 }
 
 footer .widget p::after,
