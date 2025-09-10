@@ -51,38 +51,7 @@ class StoreFields extends Field
                 'library' => 'all',
             ]);
 
-            /*->addTab('Images')
-            
-            ->addImage('center_image', [
-            'label' => 'Center Image',
-            'instructions' => 'Main image to display centered in the header area. Only image that displays on mobile.',
-            'return_format' => 'array',
-            'preview_size'  => 'large',
-            ])
-            ->addField('center_color', 'editor_palette')
-                ->setConfig('default_value', 'white')
-                ->setConfig('allowed_colors', ['theme-brown', 'theme-orange', 'theme-yellow', 'theme-dark-blue', 'theme-light-blue', 'theme-footer-tan', 'theme-footer-light-tan', 'white', 'black'])
-                ->setConfig('return_format', 'slug')
-            ->addImage('left_image', [
-                'label' => 'Left Image',
-                'return_format' => 'array',
-                'preview_size'  => 'large',
-            ])
-            ->addField('left_color', 'editor_palette')
-                ->setConfig('default_value', 'white')
-                ->setConfig('allowed_colors', ['theme-brown', 'theme-orange', 'theme-yellow', 'theme-dark-blue', 'theme-light-blue', 'theme-footer-tan', 'theme-footer-light-tan', 'white', 'black'])
-                ->setConfig('return_format', 'slug')
-            ->addImage('right_image', [
-                'label' => 'Right Image',
-                'return_format' => 'array',
-                'preview_size'  => 'large',
-            ])
-            ->addField('right_color', 'editor_palette')
-                ->setConfig('default_value', 'white')
-                ->setConfig('allowed_colors', ['theme-brown', 'theme-orange', 'theme-yellow', 'theme-dark-blue', 'theme-light-blue', 'theme-footer-tan', 'theme-footer-light-tan', 'white', 'black'])
-                ->setConfig('return_format', 'slug');*/
-
-
+    
 
         return $menuItem->build();
     }
