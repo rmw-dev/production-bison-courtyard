@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     resizeHeadline();
+    
+    const headline = document.getElementById('headline');
+    headline.style.transition = 'opacity 1s ease-in-out';
+    headline.classList.remove('opacity-0');
+    headline.classList.remove('translate-y-30');
     window.addEventListener("resize", resizeHeadline);
 });
 

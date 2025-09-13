@@ -43,7 +43,7 @@
           <img
             id="headline"
             src="{{ Vite::asset('resources/images/headline.svg') }}"
-            class="w-full absolute"
+            class="w-full absolute opacity-0 translate-y-30"
             alt="{!! $siteName !!}" />
         </div>
         @endif
