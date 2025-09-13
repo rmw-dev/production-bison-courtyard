@@ -17,7 +17,7 @@
     <!-- Toggle button -->
     <button
       type="button"
-      class="z-100 p-2 hover:cursor-pointer outline-none focus:outline-none {{ $pageSettings['solid_header'] === true ? 'text-black solid' : 'text-white' }}"
+      class="z-100 hover:cursor-pointer outline-none focus:outline-none {{ $pageSettings['solid_header'] === true ? 'text-black solid' : 'text-white' }}"
       @click="open = !open"
       :aria-expanded="open.toString()"
       aria-controls="site-menu"

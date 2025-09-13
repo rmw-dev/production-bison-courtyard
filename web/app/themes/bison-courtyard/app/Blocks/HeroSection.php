@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Blocks;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use Illuminate\Support\Facades\Vite;
 
 class HeroSection extends AbstractBlock
 {
@@ -203,6 +204,13 @@ class HeroSection extends AbstractBlock
      */
     public function assets(array $block): void
     {
-        // enqueue as needed
+        // Enqueue a script
+        wp_enqueue_script(
+            "block-{$this->name}", // unique handle
+            Vite::asset("resources/js/headline.js"),
+            [], // or []
+            null,
+            true
+        );
     }
 }
