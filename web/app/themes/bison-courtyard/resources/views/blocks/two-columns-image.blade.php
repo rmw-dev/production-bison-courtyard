@@ -58,14 +58,11 @@
               ) !!}
             @endif
             @if($fancy_image)
-              <span class="pointer-events-none absolute inset-8 rounded-t-[9999px] border border-white border-3"></span>
+              <span class="pointer-events-none absolute inset-4 md:inset-8 rounded-t-[9999px] border border-white border-3"></span>
             @else
-              <span class="pointer-events-none absolute inset-8 border border-white border-3"></span>
+              <span class="pointer-events-none absolute inset-4 md:inset-8 border border-white border-3"></span>
             @endif
 
-            
-            
-            
           </div>
         </div>
       @endif

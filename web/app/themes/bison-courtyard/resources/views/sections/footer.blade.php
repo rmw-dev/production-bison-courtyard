@@ -1,4 +1,4 @@
-<footer class="content-info max-w-[1920px] mx-auto relative md:mt-24">
+<footer class="content-info max-w-[1920px] mx-auto relative mt-8 md:mt-24">
   <div>
     @php(dynamic_sidebar('sidebar-footer'))
     <img src="{{ Vite::asset('resources/images/mountain-range.svg') }}" class="w-full" alt="{!! $siteName !!}">

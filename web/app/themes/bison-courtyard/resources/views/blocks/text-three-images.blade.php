@@ -23,7 +23,7 @@
   <div class="mx-auto max-w-[1920px] px-8 lg:px-32">
     <div class="grid grid-cols-32 auto-rows-32">
       @if(!empty($image_1['id']))
-          <div class="md:hidden w-full col-start-1 col-end-33 pt-8">
+          <div class="md:hidden w-full col-start-1 col-end-33 md:pt-8">
               <div class="arch relative overflow-hidden rounded-t-[9999px] lg:w-full">
                   {!! wp_get_attachment_image(
                     $image_1['ID'],      
