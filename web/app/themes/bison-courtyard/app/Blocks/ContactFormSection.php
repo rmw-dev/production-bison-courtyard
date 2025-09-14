@@ -147,8 +147,11 @@ protected function withBlock(): array
         'right_content'  => get_field('right_content'),
         'show_form'  => get_field('show_form'),
         'show_map'  => get_field('show_map'),
+        'endpoint'  => rest_url('rmw/v1/contact'),
+        'restNonce' => wp_create_nonce('wp_rest'),
     ];
 }
+
 
     
 

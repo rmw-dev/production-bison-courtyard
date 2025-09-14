@@ -1,22 +1,4 @@
-{{-- resources/views/blocks/hero-section.blade.php --}}
-@php
-  // preview state (object or array safe)
-  $isPreview = $is_preview
-    ?? (is_object($block ?? null) ? ($block->preview ?? false)
-    : (is_array($block ?? null) ? ($block['data']['is_preview'] ?? false) : false));
-
-  $imgBackgroundId    = is_array($background_image ?? null) ? ($background_image['ID'] ?? null)   : ($background_image ?? null);
-  $imgBackgroundAlt    = is_array($background_image ?? null) ? ($background_image['alt'] ?? '')     : '';
-  $imgLeftId    = is_array($left_image ?? null) ? ($left_image['ID'] ?? null)   : ($left_image ?? null);
-  $imgLeftAlt    = is_array($left_image ?? null) ? ($left_image['alt'] ?? '')     : '';
-  $imgCenterId    = is_array($center_image ?? null) ? ($center_image['ID'] ?? null)   : ($center_image ?? null);
-  $imgCenterAlt    = is_array($center_image ?? null) ? ($center_image['alt'] ?? '')     : '';
-  $imgRightId    = is_array($right_image ?? null) ? ($right_image['ID'] ?? null)   : ($right_image ?? null);
-  $imgRightAlt    = is_array($right_image ?? null) ? ($right_image['alt'] ?? '')     : '';
-  $overlay   = isset($overlay_opacity) ? max(0, min(1, (float) $overlay_opacity)) : 0.35;
-@endphp
-
-<section class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} hidden md:block">
+<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} hidden md:block">
   <div class="px-8 lg:px-32 bg-gradient-to-b from-white from-50% to-theme-footer-light-tan to-50%">
     <div class="flex flex-col relative">
       @if($imgBackgroundId)
@@ -52,9 +34,9 @@
       <svg viewBox="0 0 100 150" class="absolute inset-0 w-full h-full">
         <defs>
           <clipPath id="arch-tall" clipPathUnits="objectBoundingBox">
-            <path d="M0.08,0.9
+            <path d="M0.09,0.9
                     V0.30
-                    A0.42,0.3 0 0,1 0.92,0.30
+                    A0.41,0.3 0 0,1 0.91,0.30
                     V0.9 Z" />
           </clipPath>
         </defs>
@@ -79,7 +61,7 @@
             </div>
           </div>
           {{-- Center Image --}}
-         <div class="relative h-full {{ $center_color }} animate-fade-in" style="animation-delay: 0s;">
+         <div class="relative h-full {{ $center_color }} animate-fade-in max-h-[738px]" style="animation-delay: 0s;">
             <div class="absolute top-0 h-[500px] w-full -mt-[500px] z-100 {{ $center_color }}"></div>
               <div class="relative w-full h-full clip-arch2">
                 {!! wp_get_attachment_image(

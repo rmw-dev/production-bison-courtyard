@@ -34,11 +34,18 @@
 html {
     @apply font-futura;
     color: #2e2e2e;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow: hidden;
 }
 
 [x-cloak] {
     display: none !important;
 }
+
 
 h1,
 h2,
@@ -121,6 +128,9 @@ h5 {
     @apply text-base;
 }
 
+.prose strong {
+    font-weight: 800;
+}
 
 .prose ul {
     @apply list-disc list-inside mb-6;
@@ -159,10 +169,8 @@ h5 {
 
 footer .widget p,
 footer .widget a {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
+    @apply relative inline-block cursor-pointer leading-[3] md:leading-[2];
+
 }
 
 footer .widget p::after,

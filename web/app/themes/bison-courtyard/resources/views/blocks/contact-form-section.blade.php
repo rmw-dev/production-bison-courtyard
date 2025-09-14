@@ -1,10 +1,6 @@
-{{-- resources/views/partials/contact-form-section.blade.php --}}
-@php
-  $endpoint  = rest_url('rmw/v1/contact');
-  $restNonce = wp_create_nonce('wp_rest');
-@endphp
 
-<section class="relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} px-8 md:px-24">
+
+<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} px-8 md:px-24">
   <div class="grid lg:grid-cols-2 gap-12 lg:gap-24">
     <div>
       @unless(empty($left_heading))
@@ -27,7 +23,7 @@
         title="Bison Courtyard"
         address="211 Bear St, Banff, AB"
         mapStyle="bison"
-        height="820px"
+        height="520px"
         class="rounded-xl overflow-hidden mt-10"
       />
     </div>
@@ -41,7 +37,7 @@
       </div>
       @endunless
       <form method="POST" action="/contact" data-endpoint="{{ $endpoint }}" data-nonce="{{ $restNonce }}" id="contact-form" class="mt-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
             <x-form-inputs.textbox label="First Name" name="first_name" />
             <x-form-inputs.textbox label="Last Name" name="last_name" />
             <x-form-inputs.textbox label="Contact Number" name="contact_number" />

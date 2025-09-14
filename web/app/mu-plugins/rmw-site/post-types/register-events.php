@@ -28,3 +28,11 @@ add_action('init', function () {
 });
 
 
+add_action('pre_get_posts', function ($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('event')) {
+        $query->set('meta_key', 'event_date_start');
+        $query->set('orderby', 'meta_value');
+        $query->set('order', 'DESC');
+        $query->set('meta_type', 'DATE');
+    }
+});

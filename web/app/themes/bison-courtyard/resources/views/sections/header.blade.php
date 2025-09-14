@@ -17,7 +17,7 @@
     <!-- Toggle button -->
     <button
       type="button"
-      class="z-100 p-2 hover:cursor-pointer outline-none focus:outline-none {{ $pageSettings['solid_header'] === true ? 'text-black solid' : 'text-white' }}"
+      class="z-100 hover:cursor-pointer outline-none focus:outline-none {{ $pageSettings['solid_header'] === true ? 'text-black solid' : 'text-white' }}"
       @click="open = !open"
       :aria-expanded="open.toString()"
       aria-controls="site-menu"
@@ -76,6 +76,7 @@
                 }
               }
             }"
+            @resize.window="underline.left = 0; underline.width = 0; initialized = false"
             class="relative"
           >
             <div
@@ -104,14 +105,14 @@
               {{-- TOP LEVEL NAV --}}
               <nav id="site-menu" class="nav-primary relative flex justify-evenly">
                 <span
-                  class="absolute bottom-0 h-[3px] bg-black transition-all duration-200 ease-out"
+                  class="absolute -bottom-2 h-[4px] transition-all duration-200 ease-out bg-theme-light-blue"
                   :style="`left:${underline.left}px; width:${underline.width}px;`"
                 ></span>
 
                 @foreach ($siteMenu as $item)
                   @if ($item->menu_item_parent === '0')
                     <a
-                      href="#"
+                      href="{{ $item->url ?? '#' }}"
                       x-ref="{{ $loop->first ? 'first' : 'link' }}"
                       class="relative text-black font-normal text-3xl !decoration-none py-1"
                       @mouseenter.prevent="
@@ -128,14 +129,17 @@
 
               {{-- RIGHT PANELS --}}
               <div
-                class="relative mt-16 w-full transition duration-150 ease-out will-change-transform"
+                class="relative w-full transition duration-150 ease-out will-change-transform"
                 :class="swapping ? 'opacity-0 -translate-y-1' : 'opacity-100 translate-y-0'"
                 @transitionend.self="onSwapEnd()"
               >
                 @foreach ($siteMenu as $top_item)
-                  @if ($top_item->menu_item_parent === '0')
+                  @php 
+                    $subMenuCount = count(array_filter($siteMenu, fn($i) => $i->menu_item_parent === $top_item->db_id));
+                  @endphp
+                  @if ($top_item->menu_item_parent === '0' && $subMenuCount > 0)
                     <template x-if="active === '{{ $top_item->db_id }}'">
-                      <div class="w-full flex flex-col items-center menu-panel">
+                      <div class="w-full flex flex-col items-center menu-panel mt-16 ">
                         <h2 class="text-center text-black text-4xl font-[800]">{{ $top_item->title }}</h2>
                         <p class="text-center text-black font-normal text-2xl mt-8">{{ $top_item->description }}</p>
 
@@ -143,7 +147,7 @@
                           @foreach ($siteMenu as $item)
                             @if ($item->menu_item_parent === $top_item->db_id)
                               <a href="{{ $item->url ?? '#' }}" class="flex flex-col gap-4 w-1/5 text-black font-[800] text-3xl hover:-translate-y-2 duration-300 ease-out">
-                                {!! wp_get_attachment_image($item->thumbnail, 'full', false, ['class' => 'w-full rounded-xl aspect-square object-cover']) !!}
+                                {!! wp_get_attachment_image($item->thumbnail, 'full', false, ['class' => 'w-full rounded-xl aspect-square object-cover', 'fetchpriority' => 'high']) !!}
                                 <h3 class="!text-2xl no-underline">{{ $item->title }}</h3>
                               </a>
                             @endif
