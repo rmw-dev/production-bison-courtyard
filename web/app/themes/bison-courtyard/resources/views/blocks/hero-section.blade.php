@@ -48,7 +48,7 @@
         </div>
         @endif
         @if(!empty($subheadline))
-          <h2 class="font-[800] px-8 mt-4 text-white !text-2xl md:!text-5xl max-w-6xl mx-auto tracking-widest animate-in-right">
+          <h2 class="font-[800] px-8 mt-4 text-white !text-2xl md:!text-5xl lg:!text-6xl max-w-6xl mx-auto tracking-widest animate-in-right">
             {!! $subheadline !!}
           </h2>
         @endif
