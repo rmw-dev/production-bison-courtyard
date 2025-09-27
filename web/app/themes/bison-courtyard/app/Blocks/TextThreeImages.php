@@ -9,7 +9,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 class TextThreeImages extends AbstractBlock
 {
     /** @var string */
-    public $name = 'Text & Three Images';
+    public $name = 'Text Three Images';
 
     /** @var string */
     public $description = 'A beautiful homepage block';
@@ -111,8 +111,6 @@ class TextThreeImages extends AbstractBlock
             
             return $event_id ? get_post($event_id) : null;
         } else {
-
-            
             $events = get_posts([
                 'post_type'      => 'event',
                 'post_status'    => 'publish',
@@ -128,6 +126,7 @@ class TextThreeImages extends AbstractBlock
     protected function defineFields(FieldsBuilder $fields): FieldsBuilder
 {
     $fields
+    
         ->addTab('content', ['label' => 'Content', 'placement' => 'left'])
 
         ->addText('heading', [
@@ -191,16 +190,27 @@ class TextThreeImages extends AbstractBlock
             ],
         ])
 
-
-
-        ->addSelect('event_manual_event', [
-            'label' => 'Select Event',
-            'instructions' => 'Choose an event to display.',
-            'choices' => $this->getChoices(),
-            'return_format' => 'key',
+        ->addPostObject('event_manual_event', [
+            'label' => 'Featured Event',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => [],
+            'wrapper' => [
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ],
+            'post_type' => ['event'],
+            'taxonomy' => [],
+            'allow_null' => 0,
+            'multiple' => 0,
+            'return_format' => 'object',
+            'ui' => 1,
         ])
-        
         ->conditional('event_selection_mode', '==', '1');
+        
+        
+    
 
     
         

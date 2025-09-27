@@ -1,3 +1,18 @@
+@php
+
+//generate event date output
+$start_date = get_field('event_date_start', $featured_event->ID);
+$end_date = get_field('event_date_end', $featured_event->ID);
+
+if($start_date === $end_date) {
+  $date_string = $start_date;
+} else {
+  $date_string = $start_date . ' - ' . $end_date;
+}
+
+echo $show_event;
+@endphp
+
 <section id="{{$block->block?->anchor ?? '' }}" class="relative block-three-images-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">
   @if(!empty($heading))
     <h2 class="flex flex-col justify-center {{$show_event && $show_event === true ? 'bg-white' : 'bg-theme-footer-light-tan' }} lg:{{ $layout['background_color'] ?? '' }} font-[800] text-3xl md:text-5xl py-16 lg:mb-8 text-center px-8 lg:px-32">
@@ -7,9 +22,9 @@
   @if(!empty($show_event && $show_event === true))
     <div class="w-full bg-theme-footer-light-tan px-8 lg:px-32 py-16 mb-16 text-xl grid lg:grid-cols-2 gap-16 justify-center items-center">
       <div class="">
-        <h2 class="font-[800] mb-4">Featured Event</h2>
+        <h2 class="!text-3xl lg:!text-5xl lg:mb-12 ">FEATURED EVENT</h2>
         <h3 class="mb-2"> {{ $featured_event->post_title }}</h2>
-        <p class="mt-0 mb-10 border-b pb-4">{{ get_field('event_date_start', $featured_event->ID) }}</p>
+        <div class="mt-0 mb-10 border-b pb-4 flex gap-2 items-center">@svg('bi-calendar','w-6 h-6 text-theme-brown transition-color duration-300') {{ $date_string }}</div>
         <div class="prose">{!! get_field('event_featured_excerpt', $featured_event->ID) !!}</div>
         <x-button :href="get_permalink($featured_event->ID)" class="mt-8">Learn More</x-button>
       </div>
