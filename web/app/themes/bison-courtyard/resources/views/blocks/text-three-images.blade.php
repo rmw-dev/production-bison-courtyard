@@ -9,8 +9,6 @@ if($start_date === $end_date) {
 } else {
   $date_string = $start_date . ' - ' . $end_date;
 }
-
-echo $show_event;
 @endphp
 
 <section id="{{$block->block?->anchor ?? '' }}" class="relative block-three-images-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }}">

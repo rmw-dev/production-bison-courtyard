@@ -129,6 +129,7 @@ class TextThreeImages extends AbstractBlock
     
         ->addTab('content', ['label' => 'Content', 'placement' => 'left'])
 
+        
         ->addText('heading', [
             'label' => 'Heading',
         ])
