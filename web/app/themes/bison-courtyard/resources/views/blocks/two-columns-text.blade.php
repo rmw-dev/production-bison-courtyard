@@ -3,7 +3,7 @@
   @unless(empty($left_heading) && empty($right_heading))
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 {{ $text_class }}">
     @unless(empty($left_heading))
-    <h2 class="text-3xl md:!text-5xl mb-8 md:mb-0">
+    <h2 class="!text-3xl md:!text-5xl mb-8 md:mb-12">
       {{ $left_heading }}
     </h2>
     @endunless

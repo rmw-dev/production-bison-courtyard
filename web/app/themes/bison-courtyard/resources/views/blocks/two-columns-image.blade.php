@@ -4,7 +4,7 @@
       {{-- Left Column --}}
       <div class="{{ $text_left_side ? 'order-1' : 'order-0' }}">
       @unless(empty($text_heading))
-        <div class="text-3xl lg:text-5xl lg:mb-12 ">
+        <div class="text-3xl md:text-5xl mb-8 md:mb-12 ">
           {{ $text_heading }}
         </div>
       @endunless
