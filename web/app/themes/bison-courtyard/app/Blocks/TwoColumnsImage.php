@@ -174,7 +174,7 @@ protected function withBlock(): array
         'text_heading'    => get_field('text_heading'),
         'text_content'    => get_field('text_content'),
         'text_class'      => 'text-' . get_field('text_color'),
-        'text_left_side'  => get_field('text_side'),
+        'text_left_side'  => get_field('text_left_side') ? 1 : 0,
         'text_buttons'    => get_field('text_buttons'),
         'image'           => get_field('image'),
         'fancy_image'     => get_field('fancy_image'),
