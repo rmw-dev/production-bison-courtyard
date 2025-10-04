@@ -131,7 +131,7 @@ class TwoColumnsImage extends AbstractBlock
             ])
         ->endRepeater()
 
-        ->addTrueFalse('text_side', [
+        ->addTrueFalse('text_left_side', [
             'label' => 'Text on Left Side',
             'ui' => 1,
             'default_value' => 0,
