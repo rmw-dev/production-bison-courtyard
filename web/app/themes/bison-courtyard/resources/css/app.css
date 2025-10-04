@@ -208,6 +208,23 @@ footer .widget a {
     transform: translateY(-200px);
 }
 
+#mountain-range #mountains {
+    transition: all 1.5s ease-out;
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+#mountain-range #trees {
+    transition: all 1.5s ease-out;
+    transform: translateY(50px);
+}
+
+#footer-heading {
+    transition: all 1s ease-out;
+    transition-delay: 1s;
+    opacity: 0;
+}
+
 @keyframes zoomInOnce {
     0% {
         transform: scale(1);
