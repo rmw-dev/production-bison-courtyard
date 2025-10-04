@@ -53,7 +53,7 @@
                   [
                     'class' => 'w-full object-cover zoom-hover',
                     'alt'   => $image['alt'], 
-                    'sizes' => '(max-width: 1920px) 50vw, 600px',
+                    'sizes' => '(max-width: 1920px) 50vw, 860px',
                   ]
               ) !!}
             @endif
