@@ -1,8 +1,7 @@
 <section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} px-8 lg:px-24">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24 gap-y-8 {{ $text_class }}">
-    
       {{-- Left Column --}}
-      <div class="{{ $text_left_side ? 'order-1' : 'order-0' }}">
+      <div class="{{ $text_left_side ? 'order-1' : 'order-1 md:order-0' }}">
       @unless(empty($text_heading))
         <div class="text-3xl md:text-5xl mb-8 md:mb-12 ">
           {{ $text_heading }}
@@ -29,7 +28,7 @@
       </div>
       @endunless
     </div>
-    <div class="prose z-50 {{ $fancy_image ? '3xl:-mt-64' : '' }} {{ $text_left_side ? 'order-0' : 'order-1' }}">
+    <div class="prose z-50 {{ $fancy_image ? '3xl:-mt-64' : '' }} {{ $text_left_side ? 'order-0' : 'order-0 md:order-1' }}">
       @if(!empty($image['url']))
         <div class="relative flex justify-center">
           <div class="relative overflow-hidden {{ $fancy_image ? "rounded-t-[9999px] arch w-3/4" : "w-full aspect-video" }}">
