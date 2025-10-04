@@ -64,3 +64,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".zoom-image, .zoom-text")
       .forEach(el => observer.observe(el));
   });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  console.log('here');
+  const footer = document.querySelector("footer");
+
+  const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelector('#mountains').style.transform = 'translateY(0)';
+          entry.target.querySelector('#mountains').style.opacity = '1';
+          entry.target.querySelector('#trees').style.transform = 'translateY(0)';
+          entry.target.querySelector('#footer-heading').style.transform = 'translateY(0)';
+          entry.target.querySelector('#footer-heading').style.opacity = '1';
+          obs.unobserve(entry.target); // run only once
+        }
+      });
+    }, { threshold: 0.5 });
+
+    
+    observer.observe(footer);
+
+});

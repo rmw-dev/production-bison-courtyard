@@ -17,3 +17,4 @@ add_filter('excerpt_more', function () {
 
 
 add_filter( 'excerpt_length', function () { return 30; }, 999 );
+
