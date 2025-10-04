@@ -33,7 +33,7 @@ if($start_date === $end_date) {
     </div>
   @endif
 
-  <div class="mx-auto max-w-[1920px] px-8 lg:px-32">
+  <div class="mx-auto max-w-[1920px] px-8 lg:px-32 mt-16 md:mt-0">
     <div class="grid grid-cols-32 auto-rows-32">
       @if(!empty($image_1['id']))
           <div class="md:hidden w-full col-start-1 col-end-33 md:pt-8">
