@@ -1,4 +1,3 @@
-
 <section id="{{$block->block?->anchor ?? '' }}" class="relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} {{ $has_overlapping_image_below === '1' ? 'pb-32' : '' }} px-8 lg:px-24">
   @unless(empty($left_heading) && empty($right_heading))
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 {{ $text_class }}">
