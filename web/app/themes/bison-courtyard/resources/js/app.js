@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
           obs.unobserve(entry.target); // run only once
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.4 });
 
     
     observer.observe(footer);
