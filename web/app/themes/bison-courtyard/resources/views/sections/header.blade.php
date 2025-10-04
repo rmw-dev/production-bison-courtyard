@@ -147,7 +147,7 @@
                           @foreach ($siteMenu as $item)
                             @if ($item->menu_item_parent === $top_item->db_id)
                               <a href="{{ $item->url ?? '#' }}" class="flex flex-col gap-4 w-1/5 text-black font-[800] text-3xl hover:-translate-y-2 duration-300 ease-out">
-                                {!! wp_get_attachment_image($item->thumbnail, 'full', false, ['class' => 'w-full rounded-xl aspect-square object-cover', 'fetchpriority' => 'high']) !!}
+                                {!! wp_get_attachment_image($item->thumbnail, 'large', false, ['class' => 'w-full rounded-xl aspect-square object-cover', 'fetchpriority' => 'high']) !!}
                                 <h3 class="!text-2xl no-underline">{{ $item->title }}</h3>
                               </a>
                             @endif

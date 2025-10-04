@@ -209,19 +209,19 @@ footer .widget a {
 }
 
 #mountain-range #mountains {
-    transition: all 1.5s ease-out;
-    transform: translateY(100px);
+    transition: all 1s ease-out;
+    transform: translateY(150px);
     opacity: 0;
 }
 
 #mountain-range #trees {
-    transition: all 1.5s ease-out;
+    transition: all 1s ease-out;
     transform: translateY(50px);
 }
 
 #footer-heading {
     transition: all 0.5s ease-out;
-    transition-delay: 1s;
+    transition-delay: 0.5s;
     opacity: 0;
 }
 
