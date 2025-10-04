@@ -59,7 +59,7 @@ abstract class AbstractBlock extends Block
                 'min'           => 0,
                 'max'           => 24,
                 'step'          => 1,
-                'append'        => 'px',
+                'append'        => 'units',
                 'default_value' => 16,
                 'wrapper'       => ['width' => 100],
             ])
@@ -68,7 +68,7 @@ abstract class AbstractBlock extends Block
                 'min'           => 0,
                 'max'           => 24,
                 'step'          => 1,
-                'append'        => 'px',
+                'append'        => 'units',
                 'default_value' => 16,
                 'wrapper'       => ['width' => 100],
             ])
