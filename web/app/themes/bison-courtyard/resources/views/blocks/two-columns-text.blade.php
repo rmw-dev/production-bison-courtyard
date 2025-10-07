@@ -1,4 +1,4 @@
-<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} {{ $has_overlapping_image_below === '1' ? 'pb-32' : '' }} px-8 lg:px-24">
+<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate overflow-hidden block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} {{ $has_overlapping_image_below === '1' ? 'pb-32' : '' }} {{ $bison_tracks_bg !== 'None'  ? 'bison-print-bg' : '' }} px-8 lg:px-24">
   @unless(empty($left_heading) && empty($right_heading))
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 {{ $text_class }}">
     @unless(empty($left_heading))
@@ -30,4 +30,15 @@
     </div>
     @endunless
   </div>
+
+
+  @if (!empty($bison_tracks_bg) && $bison_tracks_bg !== 'None')
+  <div class="absolute bottom-0 left-0 right-0 top-0 overflow-hidden" >
+    <div class="absolute w-full bottom-0  leading-none pointer-events-none -z-10 text-[#f5f1ed] {{ $bison_tracks_bg === 'Right' ? 'scale-x-[-1]' : '' }}">
+      {!! file_get_contents(Vite::asset('resources/images/bison-tracks.svg')); !!}
+    </div>
+  </div>
+  @endif
+  
 </section>
+

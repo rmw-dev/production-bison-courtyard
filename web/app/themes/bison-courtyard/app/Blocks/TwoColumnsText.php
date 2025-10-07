@@ -106,6 +106,16 @@ class TwoColumnsText extends AbstractBlock
             'default_value' => 0,
             'return_format' => 'value',
         ])
+        ->addRadio('bison_tracks_bg',  [
+            'label' => 'Bison Tracks Background',
+            'choices' => [
+                0 => 'None',
+                1 => 'Left',
+                2 => 'Right',
+            ],
+            'default_value' => 0,
+            'return_format' => 'value',
+        ])
 
         ->addTab('left_side', ['label' => 'Left', 'placement' => 'left'])
 
@@ -143,6 +153,7 @@ class TwoColumnsText extends AbstractBlock
             'ui' => 1,
             'default_value' => 0,
         ]);
+        
 
 
         
@@ -164,6 +175,7 @@ protected function withBlock(): array
         'right_vertical_center_align_class'  => get_field('right_vertical_center_align') ? 'justify-center' : '',
         'text_class'  => 'text-' . get_field('text_color'),
         'has_overlapping_image_below'  =>  get_field('has_overlapping_image_below'),
+        'bison_tracks_bg'  =>  get_field('bison_tracks_bg'),
     ];
 }
 

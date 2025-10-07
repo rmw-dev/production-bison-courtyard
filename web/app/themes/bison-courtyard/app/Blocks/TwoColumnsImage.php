@@ -101,6 +101,16 @@ class TwoColumnsImage extends AbstractBlock
             'default_value' => 0,
             'return_format' => 'value',
         ])
+        ->addRadio('bison_tracks_bg',  [
+            'label' => 'Bison Tracks Background',
+            'choices' => [
+                0 => 'None',
+                1 => 'Left',
+                2 => 'Right',
+            ],
+            'default_value' => 0,
+            'return_format' => 'value',
+        ])
         ->addTab('text', ['label' => 'Text', 'placement' => 'right'])
         ->addText('text_heading', [
             'label' => 'Heading',
@@ -179,6 +189,7 @@ protected function withBlock(): array
         'image'           => get_field('image'),
         'fancy_image'     => get_field('fancy_image'),
         'bleed_up'       => true,
+        'bison_tracks_bg'  =>  get_field('bison_tracks_bg'),
         
     ];
 }

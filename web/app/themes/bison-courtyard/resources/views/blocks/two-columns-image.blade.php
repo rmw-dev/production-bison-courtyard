@@ -1,4 +1,4 @@
-<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} px-8 lg:px-24">
+<section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} {{ $bison_tracks_bg !== 'None'  ? 'bison-print-bg' : '' }} px-8 lg:px-24">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24 gap-y-8 {{ $text_class }}">
       {{-- Left Column --}}      
       <div class="{{ $text_left_side ? 'order-1 md:order-0' : 'order-1' }}">
@@ -68,5 +68,12 @@
     </div>
 
   </div>
+  @if (!empty($bison_tracks_bg) && $bison_tracks_bg !== 'None')
+  <div class="absolute bottom-0 left-0 right-0 top-0 overflow-hidden" >
+    <div class="absolute w-full bottom-0  leading-none pointer-events-none -z-10 text-[#f5f1ed] {{ $bison_tracks_bg === 'Right' ? 'scale-x-[-1]' : '' }}">
+      {!! file_get_contents(Vite::asset('resources/images/bison-tracks.svg')); !!}
+    </div>
+  </div>
+  @endif
   
 </section>
