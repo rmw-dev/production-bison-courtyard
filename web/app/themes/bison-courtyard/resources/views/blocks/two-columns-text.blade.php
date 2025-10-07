@@ -33,8 +33,8 @@
 
 
   @if (!empty($bison_tracks_bg) && $bison_tracks_bg !== 'None')
-  <div class="absolute bottom-0 left-0 right-0 top-0 overflow-hidden" >
-    <div class="absolute w-full bottom-0  leading-none pointer-events-none -z-10 text-[#f5f1ed] {{ $bison_tracks_bg === 'Right' ? 'scale-x-[-1]' : '' }}">
+  <div class="-z-10 absolute bottom-0 left-0 right-0 top-0 overflow-hidden" >
+    <div class="absolute w-full bottom-0  leading-none pointer-events-none text-[#f5f1ed] {{ $bison_tracks_bg === 'Right' ? 'scale-x-[-1]' : '' }}">
       {!! file_get_contents(Vite::asset('resources/images/bison-tracks.svg')); !!}
     </div>
   </div>
