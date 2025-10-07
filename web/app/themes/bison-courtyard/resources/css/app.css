@@ -221,7 +221,7 @@ footer .widget a {
 
 #footer-heading {
     transition: all 0.5s ease-out;
-    transition-delay: 0.5s;
+    transition-delay: 0.75s;
     opacity: 0;
 }
 
