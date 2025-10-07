@@ -225,6 +225,103 @@ footer .widget a {
     opacity: 0;
 }
 
+.bison-print-bg svg .track-1 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-1 {
+    animation: step 1s 0.0s forwards ease-out;
+}
+
+.bison-print-bg svg .track-2 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-2 {
+    animation: step 1s 0.5s forwards ease-out;
+}
+
+.bison-print-bg svg .track-3 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-3 {
+    animation: step 1s 1s forwards ease-out;
+}
+
+.bison-print-bg svg .track-4 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-4 {
+    animation: step 1s 1.5s forwards ease-out;
+}
+
+.bison-print-bg svg .track-5 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-5 {
+    animation: step 1s 2s forwards ease-out;
+}
+
+.bison-print-bg svg .track-6 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-6 {
+    animation: step 1s 2.5s forwards ease-out;
+}
+
+.bison-print-bg svg .track-7 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-7 {
+    animation: step 1s 3s forwards ease-out;
+}
+
+.bison-print-bg svg .track-8 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-8 {
+    animation: step 1s 3.5s forwards ease-out;
+}
+
+.bison-print-bg svg .track-9 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-9 {
+    animation: step 1s 4s forwards ease-out;
+}
+
+.bison-print-bg svg .track-10 {
+    opacity: 0;
+}
+
+.bison-print-bg.animate svg .track-10 {
+    animation: step 1s 4.5s forwards ease-out;
+
+}
+
+.test {
+    color: #111111;
+}
+
+@keyframes step {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes zoomInOnce {
     0% {
         transform: scale(1);

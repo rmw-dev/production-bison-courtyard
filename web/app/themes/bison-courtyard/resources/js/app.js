@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  console.log('here');
+  
   const footer = document.querySelector("footer");
 
   const observer = new IntersectionObserver((entries, obs) => {
@@ -85,5 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     observer.observe(footer);
+
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  
+  const sections = Array.from(document.querySelectorAll(".bison-print-bg"));
+  console.log(sections)
+  const observer = new IntersectionObserver((entries, obs) => {
+    console.log(entries)
+      entries.forEach(entry => {
+        console.log('before if')
+        if (entry.isIntersecting) {
+          console.log('here')
+          entry.target.classList.add("animate");
+          obs.unobserve(entry.target); // run only once
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(section => observer.observe(section));    
 
 });
