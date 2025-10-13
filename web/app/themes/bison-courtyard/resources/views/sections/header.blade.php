@@ -10,7 +10,7 @@
     <a class="brand" href="{{ home_url('/') }}">
       <img
         src="{{ $pageSettings['solid_header'] === true ? Vite::asset('resources/images/logo-full-colour.svg') : Vite::asset('resources/images/logo-white.svg') }}"
-        class="w-32 md:w-48 lg:w-64"
+        class="w-32 md:w-38 lg:w-64"
         alt="{!! $siteName !!}">
     </a>
 
