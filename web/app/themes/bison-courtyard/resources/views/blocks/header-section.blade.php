@@ -1,5 +1,5 @@
 <section id="{{$block->block?->anchor ?? '' }}" class="relative isolate block-hero-section {{ $layout['padding_class'] ?? '' }} {{ $layout['background_color'] ?? '' }} hidden md:block">
-  <div class="px-8 lg:px-32 bg-gradient-to-b from-white from-50% to-theme-footer-light-tan to-50%">
+  <div class="px-8 lg:px-32 bg-gradient-to-b from-white from-[35%] to-theme-footer-light-tan to-[35%]">
     <div class="flex flex-col relative">
       @if($imgBackgroundId)
         <picture class="pointer-events-none inset-0">
@@ -53,7 +53,7 @@
                   'hero-1920',
                   false,
                   [
-                    'class' => 'w-full h-full object-cover clip-arch',
+                    'class' => 'w-full h-full object-cover clip-arch aspect-square',
                     'sizes' => '(max-width: 1920px) 25vw, 400px',
                     'alt'   => $imgCenterAlt,
                   ]
@@ -69,7 +69,7 @@
                     'hero-1920',             // pick the registered size you want
                     false,
                     [
-                      'class' => 'w-full h-full object-cover object-center clip-arch-tall',
+                      'class' => 'w-full h-full object-cover object-center clip-arch-tall aspect-square',
                       'sizes' => '(max-width: 1920px) 30vw, 555px',
                       'alt'   => $imgCenterAlt,
                     ]
@@ -84,7 +84,7 @@
                   'hero-1920',
                   false,
                   [
-                    'class' => 'w-full h-full object-cover clip-arch',
+                    'class' => 'w-full h-full object-cover clip-arch aspect-square]',
                     'sizes' => '(max-width: 1920px) 25vw, 400px',
                     'alt'   => $imgRightAlt,
                   ]
@@ -93,7 +93,7 @@
           </div>
         </div>
         {{-- Content --}}
-        <div class="text-white text-2xl md:text-3xl lg:text-6xl text-center w-full pt-[3%] pb-[2%] font-[800] mt-auto animate-fade-in" style="animation-delay: 0.95s;">
+        <div class="text-white text-2xl md:text-3xl lg:text-6xl text-center w-full pt-[3%] pb-[3%] font-[800] mt-auto animate-fade-in" style="animation-delay: 0.95s;">
           {{ $heading }}
         </div>
       </div>
