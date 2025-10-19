@@ -111,7 +111,7 @@
     @endif
 
     @if($mobile_header_image)
-    <picture class="pointer-events-none inset-0">
+    <picture class="pointer-events-none inset-0 h-full">
       {!! wp_get_attachment_image(
           $mobile_header_image['id'],
           'full',

@@ -6,7 +6,7 @@
   @endphp
 
   <div class="container mx-auto max-w-[1920px]">
-    <div class="prose max-w-none mb-10">
+    <div class="prose max-w-none mb-0 lg:mb-10">
       {!! do_blocks(get_post_field('post_content', $page_id)) !!}
     </div>
 
@@ -58,14 +58,16 @@
             {!! $group['term']->name !!}
           </h2>
 
-          <div class="grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 pt-8">
+          <div class="grid gap-24 xl:gap-32 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8 pr-[20%] md:pr-[10%] xl:pr-[2%] mb-16">
+            @php $i = 0; @endphp
             @foreach ($group['posts'] as $p)
               @php
                 global $post;
                 $post = $p;
                 setup_postdata($post);
               @endphp
-              @include('partials.cards.store-card', ['i' => 0])
+              @include('partials.cards.store-card')
+              @php $i++; @endphp
             @endforeach
             @php wp_reset_postdata(); @endphp
           </div>
