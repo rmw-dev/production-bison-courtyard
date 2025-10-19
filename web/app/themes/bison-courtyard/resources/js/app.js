@@ -52,6 +52,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".store-card");
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.parentElement.querySelectorAll('.store-card').forEach(card => card.classList.add("animate-in-up"));
+        
+        obs.unobserve(entry.target); // run only once
+      }
+    });
+  }, { threshold: 0.5 }); // 30% visible before triggering
+
+  cards.forEach(card => observer.observe(card));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
