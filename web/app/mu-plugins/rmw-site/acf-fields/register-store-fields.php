@@ -27,6 +27,11 @@ class StoreFields extends Field
                 'toolbar' => 'full',
                 'media_upload' => 1,
             ])
+            ->addText('google_places_id', [
+                'label' => 'Google Places ID',
+                'instructions' => 'The Google Places ID for this store location.',
+                'required' => 0,
+            ])
             ->addWysiwyg('store_contact_details', [
                 'label' => 'Contact Details',
                 'instructions' => 'Store contact details such as phone number and email address.',
