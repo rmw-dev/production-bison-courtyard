@@ -58,7 +58,7 @@
             {!! $group['term']->name !!}
           </h2>
 
-          <div class="grid gap-24 xl:gap-32 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8 pr-[20%] md:pr-[10%] xl:pr-[2%] mb-16">
+          <div class="grid gap-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8 pr-[20%] md:pr-[10%] xl:pr-[2%] mb-16">
             @php $i = 0; @endphp
             @foreach ($group['posts'] as $p)
               @php

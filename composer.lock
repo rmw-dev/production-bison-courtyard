@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c1c3f5024aaae3781fab05449f8006a",
+    "content-hash": "1d5addbc6fdddd6616d26b37120f0d31",
     "packages": [
         {
             "name": "composer/installers",
@@ -661,6 +661,33 @@
                 "source": "https://github.com/php-fig/container/tree/2.0.2"
             },
             "time": "2021-11-05T16:47:00+00:00"
+        },
+        {
+            "name": "rmw-dev/google-business-hours",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:rmw-dev/google-business-hours.git",
+                "reference": "22d4d2aa2c46f2968e0672a10b5252a1a0750a03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmw-dev/google-business-hours/zipball/22d4d2aa2c46f2968e0672a10b5252a1a0750a03",
+                "reference": "22d4d2aa2c46f2968e0672a10b5252a1a0750a03",
+                "shasum": ""
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "John McAulay",
+                    "email": "john@thegreenroom.org.nz"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/rmw-dev/google-business-hours/tree/1.1",
+                "issues": "https://github.com/rmw-dev/google-business-hours/issues"
+            },
+            "time": "2025-10-20T18:59:40+00:00"
         },
         {
             "name": "roots/bedrock-autoloader",
