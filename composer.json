@@ -34,6 +34,10 @@
       "url": "https://connect.advancedcustomfields.com"
     },
     {
+      "type": "vcs",
+      "url": "git@github.com:rmw-dev/google-business-hours"
+    },
+    {
       "type": "package",
       "package": {
         "name": "kinsta/kinsta-mu-plugins",
@@ -63,7 +67,8 @@
     "yoast/duplicate-post": "dev-trunk",
     "kinsta/kinsta-mu-plugins": "^2.3",
     "wpackagist-plugin/tracking-code-manager": "^2.5",
-    "wpackagist-plugin/query-monitor": "^3.20"
+    "wpackagist-plugin/query-monitor": "^3.20",
+    "rmw-dev/google-business-hours": "^1.1"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
