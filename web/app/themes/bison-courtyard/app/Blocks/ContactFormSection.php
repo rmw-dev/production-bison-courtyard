@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Blocks;
 
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use Vite;
 
 class ContactFormSection extends AbstractBlock
 {
@@ -97,6 +98,26 @@ class ContactFormSection extends AbstractBlock
             'ui' => 1,
             'default_value' => 0,
         ])
+
+        ->addSelect('form_type', [
+            'label' => 'Form Type',
+            'choices' => [
+                'forms.contact-form' => 'General Enquiry',
+                'forms.commercial-leasing-enquiry' => 'Commercial Leasing Enquiry',
+                'forms.residential-leasing-enquiry' => 'Residential Leasing Enquiry',
+                'forms.parking-enquiry' => 'Parking Enquiry',
+            ],
+            'default_value' => 'general',
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => 'show_form',
+                        'operator' => '==',
+                        'value' => '1',
+                    ],
+                ],
+            ],
+        ])
         
         ->addTrueFalse('show_map', [
             'label' => 'Show map',
@@ -146,20 +167,52 @@ protected function withBlock(): array
         'left_content'  => get_field('left_content'),
         'right_content'  => get_field('right_content'),
         'show_form'  => get_field('show_form'),
+        'form_type'  => get_field('form_type'),
         'show_map'  => get_field('show_map'),
-        'endpoint'  => rest_url('rmw/v1/contact'),
+        'endpoint'  => $this->getFormsEndpoint(),
         'restNonce' => wp_create_nonce('wp_rest'),
     ];
 }
 
 
-    
+    /**
+     * Get the forms endpoint URL.
+     */
+
+    protected function getFormsEndpoint(): string{
+        switch (get_field('form_type')) {
+            case 'forms.contact-form':
+                return rest_url('rmw/v1/contact');
+            case 'forms.commercial-leasing-enquiry':
+                return rest_url('rmw/v1/leasing');
+            case 'forms.residential-leasing-enquiry':
+                return rest_url('rmw/v1/residential-leasing');
+            case 'forms.parking-enquiry':
+                return rest_url('rmw/v1/parking-inquiry');
+            default:
+                return rest_url('rmw/v1/contact');
+        }
+    }
 
     /**
      * Enqueue assets when rendering the block (optional).
      */
     public function assets(array $block): void
     {
-        // enqueue as needed
+        
+        switch ($block['data']['form_type'] ?? '') {
+            case 'forms.contact-form':
+                wp_enqueue_script('contact-form-js', Vite::asset('resources/js/contactForm.js'), [], null, true);
+                break;
+            case 'forms.commercial-leasing-enquiry':
+                wp_enqueue_script('contact-form-commercial-js', Vite::asset('resources/js/contactFormCommercial.js'), [], null, true);
+                break;
+            case 'forms.residential-leasing-enquiry':
+                wp_enqueue_script('contact-form-residential-js', Vite::asset('resources/js/contactFormResidential.js'), [], null, true);
+                break;
+            case 'forms.parking-enquiry':
+                wp_enqueue_script('contact-form-parking-js', Vite::asset('resources/js/contactFormParking.js'), [], null, true);
+                break;
+        }
     }
 }

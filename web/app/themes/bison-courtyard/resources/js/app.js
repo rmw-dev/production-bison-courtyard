@@ -6,8 +6,6 @@ import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import intersect from '@alpinejs/intersect'
 
-import './contactForm.js'
-
 // Plugins (optional but handy)
 Alpine.plugin(collapse)
 Alpine.plugin(intersect)
@@ -106,8 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  
   const sections = Array.from(document.querySelectorAll(".bison-print-bg"));
   console.log(sections)
   const observer = new IntersectionObserver((entries, obs) => {
@@ -115,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach(entry => {
         console.log('before if')
         if (entry.isIntersecting) {
-          console.log('here')
           entry.target.classList.add("animate");
           obs.unobserve(entry.target); // run only once
         }
