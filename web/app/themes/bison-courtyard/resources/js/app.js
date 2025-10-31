@@ -264,3 +264,15 @@ document.addEventListener("DOMContentLoaded", () => {
     initAllMaps();
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const calendlyButtons = document.querySelectorAll("[href*='#open-calendly']");
+  calendlyButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      Calendly.initPopupWidget({url: 'https://calendly.com/administration-arctosbanff'});
+      return false;
+    });
+  });
+});

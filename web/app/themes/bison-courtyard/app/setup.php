@@ -185,6 +185,21 @@ add_action('wp_enqueue_scripts', function () {
       true
     );
   }
+
+  wp_enqueue_script(
+    'calendly',
+    'https://assets.calendly.com/assets/external/widget.js',
+    [],
+    null,
+    true
+  );
+
+  wp_enqueue_style(
+    'calendly',
+    'https://assets.calendly.com/assets/external/widget.css',
+    [],
+    null
+  );
 }, 20);
 
 
