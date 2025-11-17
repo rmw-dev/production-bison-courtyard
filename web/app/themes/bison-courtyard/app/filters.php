@@ -57,7 +57,7 @@ add_filter('rmw_leasing_to', function ($to) {
     return $to;
 });
 
-add_filter('rmw_leasing_res_to', function ($to) {
+add_filter('rmw_res_leasing_to', function ($to) {
     // Get the ACF option field (Options Page context = 'option')
     $custom_email = get_field('contact_email_to', 'option');
 
