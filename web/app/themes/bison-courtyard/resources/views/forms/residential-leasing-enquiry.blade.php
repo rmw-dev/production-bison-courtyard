@@ -23,8 +23,7 @@
       label="Unit Type Interested In"
       name="unit_type"
       :options="[
-        'studio' => 'Studio',
-        '1br' => '1 Bedroom',
+        'studio' => 'Studio / 1 Bedroom',
         '2br' => '2 Bedroom',
         '3br' => '3 Bedroom',
         'all' => 'All',
@@ -33,17 +32,6 @@
       class="md:col-span-2"
     />
 
-    {{-- Pets --}}
-    <x-form-inputs.select
-      label="Pets"
-      name="pets"
-      :options="[
-        'no' => 'No',
-        'yes' => 'Yes — please provide details below',
-      ]"
-      placeholder="Please choose..."
-      class="md:col-span-2"
-    />
   </div>
 
   {{-- Additional Comments or Questions --}}
@@ -52,7 +40,7 @@
     name="comments"
     rows="6"
     class="mb-4"
-    placeholder="If you selected 'Yes' for Pets, please include breed/size/number here."
+    placeholder="Please provide any additional details or questions you may have."
   />
 
   {{-- Honeypot --}}

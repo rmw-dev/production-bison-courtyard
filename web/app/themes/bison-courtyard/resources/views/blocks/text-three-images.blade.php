@@ -22,7 +22,7 @@ if($start_date === $end_date) {
       <div class="">
         <h2 class="!text-3xl lg:!text-5xl lg:mb-12 ">FEATURED EVENT</h2>
         <h3 class="mb-2"> {{ $featured_event->post_title }}</h2>
-        <div class="mt-0 mb-10 border-b pb-4 flex gap-2 items-center">@svg('bi-calendar','w-6 h-6 text-theme-brown transition-color duration-300') {{ $date_string }}</div>
+        <div class="mt-0 mb-10 border-b pb-4 flex gap-2 items-center"><x-bi-calendar class="w-6 h-6 text-theme-brown transition-color duration-300" /> {{ $date_string }}</div>
         <div class="prose">{!! get_field('event_featured_excerpt', $featured_event->ID) !!}</div>
         <x-button :href="get_permalink($featured_event->ID)" class="mt-8">Learn More</x-button>
       </div>

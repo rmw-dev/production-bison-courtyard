@@ -25,7 +25,7 @@
     </div>
     <div class="bg-theme-dark-blue flex flex-col justify-center pt-12 pb-16 text-white text-center">
         {{ the_title( '<h1 class="text-4xl lg:text-5xl font-[800] px-8 lg:px-32 pb-4">', '</h1>' ) }}
-        <p class="text-xl">{{ $date_string}}</p>
+        <p class="text-2xl">{{ $date_string}}</p>
       </div>
     <div class="px-8 lg:px-32 pt-8 lg:pt-24 text-xl grid xl:grid-cols-[1fr_350px] gap-x-16 gap-y-8 lg:gap-y-16">
       <div class="prose">
