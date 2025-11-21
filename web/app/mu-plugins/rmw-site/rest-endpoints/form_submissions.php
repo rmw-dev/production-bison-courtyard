@@ -230,8 +230,7 @@ add_action('rest_api_init', function () {
       'last_name'       => ['required' => true,  'type' => 'string'],
       'phone_number'    => ['required' => false, 'type' => 'string'],
       'email'           => ['required' => true,  'type' => 'string'],
-      'unit_type'       => ['required' => true,  'type' => 'string'], // studio | 1br | 2br | 3br | all
-      'pets'            => ['required' => true,  'type' => 'string'], // yes | no
+      'unit_type'       => ['required' => true,  'type' => 'string'], // studio | 1br | 2br | 3br | all      
       'comments'        => ['required' => false, 'type' => 'string'],
       'website'         => ['required' => false, 'type' => 'string'], // honeypot
     ],
@@ -267,19 +266,13 @@ function rmw_handle_residential_leasing(WP_REST_Request $req) {
   $phone_number    = sanitize_text_field($req['phone_number'] ?? '');
   $email           = sanitize_email($req['email'] ?? '');
   $unit_type       = sanitize_text_field($req['unit_type'] ?? '');
-  $pets            = sanitize_text_field($req['pets'] ?? '');
   $comments        = trim(wp_kses_post($req['comments'] ?? ''));
 
   // 5) Validate
   $valid_unit = in_array($unit_type, ['studio','1br','2br','3br','all'], true);
-  $valid_pets = in_array($pets, ['yes','no'], true);
 
-  if (!$first_name || !$last_name || !$email || !is_email($email) || !$valid_unit || !$valid_pets) {
+  if (!$first_name || !$last_name || !$email || !is_email($email) || !$valid_unit) {
     return new WP_REST_Response(['success' => false, 'message' => 'Validation failed.'], 422);
-  }
-
-  if ($pets === 'yes' && $comments === '') {
-    return new WP_REST_Response(['success' => false, 'message' => 'Please include pet details in comments.'], 422);
   }
 
   // 6) Email
@@ -293,7 +286,6 @@ function rmw_handle_residential_leasing(WP_REST_Request $req) {
     'Email: ' . $email,
     'Phone: ' . $phone_number,
     'Unit Type: ' . strtoupper($unit_type),
-    'Pets: ' . strtoupper($pets),
     'IP: ' . $ip,
     'Time: ' . current_time('mysql'),
     '',
@@ -321,8 +313,7 @@ function rmw_handle_residential_leasing(WP_REST_Request $req) {
     'last_name'       => $last_name,
     'phone_number'    => $phone_number,
     'email'           => $email,
-    'unit_type'       => $unit_type,
-    'pets'            => $pets,
+    'unit_type'       => $unit_type,    
     'comments'        => $comments,
     'ip'              => $ip,
     'timestamp'       => current_time('mysql'),
