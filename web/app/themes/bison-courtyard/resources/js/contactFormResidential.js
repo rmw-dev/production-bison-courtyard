@@ -33,7 +33,7 @@ function validate(form) {
   form.querySelectorAll('input, textarea, select').forEach(clearError);
 
   // Required fields
-  const required = ['first_name', 'last_name', 'email', 'unit_type', 'pets'];
+  const required = ['first_name', 'last_name', 'email', 'unit_type'];
   required.forEach((name) => {
     const el = form.querySelector(`[name="${name}"]`);
     if (!el || !v(form, name)) {
@@ -62,13 +62,6 @@ function validate(form) {
     }
   }
 
-  // If pets = yes, require details in comments
-  const pets = v(form, 'pets');
-  if (pets === 'yes' && !v(form, 'comments')) {
-    setError(form.querySelector('[name="comments"]'), 'Please provide pet details.');
-    ok = false;
-  }
-
   // Honeypot must be empty
   const hp = form.querySelector('[name="website"]');
   if (hp && hp.value) ok = false;
@@ -84,7 +77,6 @@ async function submitForm(form, statusEl, btn) {
     phone_number: v(form, 'phone_number'),
     email: v(form, 'email'),
     unit_type: v(form, 'unit_type'),
-    pets: v(form, 'pets'), // 'yes' | 'no'
     comments: v(form, 'comments'),
     website: v(form, 'website'), // honeypot
   };
