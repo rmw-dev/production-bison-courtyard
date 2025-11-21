@@ -16,7 +16,7 @@
 
     {{-- Native archive loop (pagination, SEO, all intact) --}}
     @if (have_posts())
-      <div class="grid gap-12 sm:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 container mx-auto max-w-[1920px] pt-8 lg:pt-16 px-8 lg:px-32">
+      <div class="grid gap-12 sm:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 auto-rows-fr container mx-auto max-w-[1920px] pt-8 lg:pt-16 px-8 lg:px-32">
         @php $i = 0; @endphp
         @while (have_posts()) @php the_post() @endphp
           @include('partials.cards.event-card')

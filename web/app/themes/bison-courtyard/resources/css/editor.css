@@ -1,2 +1,400 @@
 @import "tailwindcss";
+@import './fonts.css';
 @import './app.css';
+
+
+.block-editor-iframe__body.post-type-event {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #111827;
+    /* neutral-900-ish */
+    background-color: #ffffff;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* Constrain content width similar to frontend layout */
+.block-editor-iframe__body.post-type-event .wp-block,
+.block-editor-iframe__body.post-type-event .editor-styles-wrapper>* {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Allow full/wide alignment to break out */
+.block-editor-iframe__body.post-type-event .alignwide {
+    max-width: 1100px;
+}
+
+.block-editor-iframe__body.post-type-event .alignfull {
+    max-width: none;
+    width: 100%;
+}
+
+/* Typography
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event p {
+    margin: 0 0 1em;
+}
+
+.block-editor-iframe__body.post-type-event p:last-child {
+    margin-bottom: 0;
+}
+
+.block-editor-iframe__body.post-type-event h1,
+.block-editor-iframe__body.post-type-event h2,
+.block-editor-iframe__body.post-type-event h3,
+.block-editor-iframe__body.post-type-event h4,
+.block-editor-iframe__body.post-type-event h5,
+.block-editor-iframe__body.post-type-event h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #111827;
+}
+
+.block-editor-iframe__body.post-type-event h1 {
+    font-size: 2.25rem;
+    /* 36px */
+}
+
+.block-editor-iframe__body.post-type-event h2 {
+    font-size: 1.875rem;
+    /* 30px */
+}
+
+.block-editor-iframe__body.post-type-event h3 {
+    font-size: 1.5rem;
+    /* 24px */
+}
+
+.block-editor-iframe__body.post-type-event h4 {
+    font-size: 1.25rem;
+    /* 20px */
+}
+
+.block-editor-iframe__body.post-type-event h5 {
+    font-size: 1.125rem;
+    /* 18px */
+}
+
+.block-editor-iframe__body.post-type-event h6 {
+    font-size: 1rem;
+    /* 16px */
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.block-editor-iframe__body.post-type-event strong,
+.block-editor-iframe__body.post-type-event b {
+    font-weight: 600;
+}
+
+.block-editor-iframe__body.post-type-event em,
+.block-editor-iframe__body.post-type-event i {
+    font-style: italic;
+}
+
+.block-editor-iframe__body.post-type-event small {
+    font-size: 0.875em;
+}
+
+/* Links
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event a {
+    color: #2563eb;
+    /* blue-600-ish */
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.block-editor-iframe__body.post-type-event a:hover,
+.block-editor-iframe__body.post-type-event a:focus {
+    color: #1d4ed8;
+    /* blue-700-ish */
+}
+
+/* Lists
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event ul,
+.block-editor-iframe__body.post-type-event ol {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+}
+
+.block-editor-iframe__body.post-type-event ul {
+    list-style-type: disc;
+}
+
+.block-editor-iframe__body.post-type-event ul ul {
+    list-style-type: circle;
+}
+
+.block-editor-iframe__body.post-type-event ol {
+    list-style-type: decimal;
+}
+
+.block-editor-iframe__body.post-type-event li {
+    margin-bottom: 0.25em;
+}
+
+.block-editor-iframe__body.post-type-event li>ul,
+.block-editor-iframe__body.post-type-event li>ol {
+    margin-top: 0.25em;
+}
+
+/* Blockquotes
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event blockquote {
+    margin: 1.5em 0;
+    padding: 0.75em 1em;
+    border-left: 4px solid #e5e7eb;
+    /* neutral-200-ish */
+    background-color: #f9fafb;
+    /* neutral-50-ish */
+    color: #4b5563;
+    /* neutral-600-ish */
+}
+
+.block-editor-iframe__body.post-type-event blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.block-editor-iframe__body.post-type-event blockquote cite {
+    display: block;
+    margin-top: 0.5em;
+    font-size: 0.875em;
+    color: #6b7280;
+    /* neutral-500-ish */
+}
+
+/* Code & Pre
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event code,
+.block-editor-iframe__body.post-type-event kbd,
+.block-editor-iframe__body.post-type-event samp {
+
+    font-size: 0.875em;
+    background-color: #f3f4f6;
+    padding: 0.1em 0.25em;
+    border-radius: 3px;
+}
+
+.block-editor-iframe__body.post-type-event pre {
+
+    font-size: 0.875em;
+    line-height: 1.5;
+    background-color: #0f172a;
+    /* slate-900-ish */
+    color: #e5e7eb;
+    padding: 1em;
+    margin: 1.5em 0;
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+.block-editor-iframe__body.post-type-event pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Horizontal rule
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event hr {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 2em 0;
+}
+
+/* Images & media
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event img {
+    max-width: 100%;
+    height: auto;
+}
+
+.block-editor-iframe__body.post-type-event figure {
+    margin: 1.5em 0;
+}
+
+.block-editor-iframe__body.post-type-event figure img {
+    display: block;
+}
+
+.block-editor-iframe__body.post-type-event figcaption {
+    margin-top: 0.5em;
+    font-size: 0.875em;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Alignment helpers (used by Gutenberg)
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event .alignleft {
+    float: left;
+    margin: 0.25em 1.5em 1em 0;
+}
+
+.block-editor-iframe__body.post-type-event .alignright {
+    float: right;
+    margin: 0.25em 0 1em 1.5em;
+}
+
+.block-editor-iframe__body.post-type-event .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Clear floats */
+.block-editor-iframe__body.post-type-event .editor-styles-wrapper::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Tables
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+}
+
+.block-editor-iframe__body.post-type-event th,
+.block-editor-iframe__body.post-type-event td {
+    padding: 0.5em 0.75em;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.block-editor-iframe__body.post-type-event thead th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+}
+
+.block-editor-iframe__body.post-type-event tbody tr:nth-child(odd) {
+    background-color: #f9fafb;
+}
+
+/* Forms (for contact form blocks / embeds)
+   ========================================================================== */
+
+.block-editor-iframe__body.post-type-event input,
+.block-editor-iframe__body.post-type-event select,
+.block-editor-iframe__body.post-type-event textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0.5em 0.75em;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+.block-editor-iframe__body.post-type-event input:focus,
+.block-editor-iframe__body.post-type-event select:focus,
+.block-editor-iframe__body.post-type-event textarea:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 1px;
+    border-color: #2563eb;
+}
+
+.block-editor-iframe__body.post-type-event button,
+.block-editor-iframe__body.post-type-event input[type="submit"],
+.block-editor-iframe__body.post-type-event .wp-block-button__link {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 0.6em 1.2em;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.block-editor-iframe__body.post-type-event button:hover,
+.block-editor-iframe__body.post-type-event input[type="submit"]:hover,
+.block-editor-iframe__body.post-type-event .wp-block-button__link:hover {
+    background-color: #1d4ed8;
+}
+
+/* Gutenberg-specific block tweaks
+   ========================================================================== */
+
+/* Paragraph block spacing inside editor */
+.block-editor-iframe__body.post-type-event .wp-block-paragraph {
+    margin-bottom: 1em;
+}
+
+/* List block */
+.block-editor-iframe__body.post-type-event .wp-block-list {
+    margin: 0 0 1em 1.5em;
+}
+
+/* Quote block */
+.block-editor-iframe__body.post-type-event .wp-block-quote {
+    margin: 1.5em 0;
+}
+
+/* Image block */
+.block-editor-iframe__body.post-type-event .wp-block-image {
+    margin: 1.5em 0;
+}
+
+/* Buttons block */
+.block-editor-iframe__body.post-type-event .wp-block-buttons {
+    margin: 1.5em 0;
+}
+
+/* Spacer block visualization */
+.block-editor-iframe__body.post-type-event .wp-block-spacer {
+    background: linear-gradient(135deg,
+            rgba(148, 163, 184, 0.25),
+            rgba(148, 163, 184, 0.1));
+}
+
+/* Captions for classic-style images */
+.block-editor-iframe__body.post-type-event .wp-caption {
+    max-width: 100%;
+    margin: 1.5em 0;
+}
+
+.block-editor-iframe__body.post-type-event .wp-caption img {
+    display: block;
+}
+
+.block-editor-iframe__body.post-type-event .wp-caption-text {
+    margin-top: 0.5em;
+    font-size: 0.875em;
+    color: #6b7280;
+    text-align: center;
+}
+
+.block-editor-iframe__body.post-type-event h1,
+.block-editor-iframe__body.post-type-event h2,
+.block-editor-iframe__body.post-type-event h3,
+.block-editor-iframe__body.post-type-event h4,
+.block-editor-iframe__body.post-type-event h5,
+.block-editor-iframe__body.post-type-event h6 {
+    font-weight: 800 !important;
+}

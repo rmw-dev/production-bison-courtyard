@@ -6,15 +6,15 @@
       <div class="!leading-12 prose">{!! $store_hours !!}</div>
       <h2 class="text-4xl mt-12 mb-6 font-[800]">CONTACT DETAILS</h2>
       <div class="!leading-12 prose">{!! $store_contact_details !!}</div>
-      <div class="!leading-12 prose flex justify-center md:justify-start gap-4 mt-6">
+      <div class="!leading-12 prose flex justify-center md:justify-start gap-6 mt-2">
         @if($store_instagram_address)
-          <a href="{{ $store_instagram_address }}" target="_blank">@svg('bi-instagram','w-8 h-8 text-theme-brown transition-color duration-300 hover:text-theme-orange')</a>
+          <a href="{{ $store_instagram_address }}" target="_blank"><x-bi-instagram class="w-10 h-10 text-theme-brown transition-color duration-300 hover:text-theme-orange" /></a>
         @endif
         @if($store_facebook_address)
-          <a href="{{ $store_facebook_address }}" target="_blank">@svg('bi-facebook','w-8 h-8 text-theme-brown transition-color duration-300 hover:text-theme-orange')</a>
+          <a href="{{ $store_facebook_address }}" target="_blank"><x-bi-facebook class="w-10 h-10 text-theme-brown transition-color duration-300 hover:text-theme-orange" /></a>
         @endif
         @if($store_twitter_address)
-          <a href="{{ $store_twitter_address }}"  target="_blank">@svg('bi-twitter','w-8 h-8 text-theme-brown transition-color duration-300 hover:text-theme-orange')</a>
+          <a href="{{ $store_twitter_address }}"  target="_blank"><x-bi-twitter class="w-10 h-10 text-theme-brown transition-color duration-300 hover:text-theme-orange" /></a>
         @endif
       </div>
     </div>
